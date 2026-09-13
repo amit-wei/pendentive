@@ -3,5 +3,4 @@ OPN-001,Retention and expiry policy for life state.,system,2026-09-13,open
 OPN-002,Resolution when two agents write contradicting values for the same item.,system,2026-09-13,open
 OPN-003,Latency budget for a spoken turn.,system,2026-09-13,open
 OPN-004,Disposition of an authorization request that receives no answer.,system,2026-09-13,open
-OPN-005,Who or what arbitrates contention between agents.,product,2026-09-13,open
 OPN-006,Where the master copy of life state is held.,product,2026-09-13,open

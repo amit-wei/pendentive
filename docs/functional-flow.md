@@ -79,7 +79,9 @@ sitting in the flow of work.
 
 ## What it does not yet settle
 
-- Whether agents execute inside the platform or attach from outside (`DEC-002` proposes both, by runtime).
 - Whether life state is one store or several.
-- Where the master copy of `GOALS.md` lives (`OPN-006`).
-- Who arbitrates cross-domain contention (`OPN-005`).
+- Where the master copy of life state is held (`OPN-006`).
+
+Settled since this diagram was drawn: agents execute both inside the platform and
+from attached clients, by runtime rather than by agent (`DEC-002`); contention is
+arbitrated by a coordinator agent which escalates to the user (`DEC-009`).
