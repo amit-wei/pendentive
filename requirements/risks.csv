@@ -1,0 +1,5 @@
+id,failure_mode,cause,effect,detection,S,L,D,RPN,mitigation,status
+RSK-002,A source stops delivering and the system reasons from data that no longer reflects reality,Ingestion failure is invisible unless deliberately surfaced,Confident output from stale input,Delivery checked against declaration,4,4,4,64,REQ-PL-004,open
+RSK-005,Personal data reaches published material,Life state and publishable material in proximity,Irreversible once published. Violates the only firm data boundary,Separation enforced by construction,5,2,3,30,REQ-PL-023,open
+RSK-006,A superseded value is presented as current,Currency judged by the reader at the time of reading,The stated condition for abandoning the system,Query-level test,5,3,2,30,REQ-PL-001,open
+RSK-007,"An agent acquires authority it was not granted, by way of a query",Asking and tasking sharing one mechanism,Unbounded action from any agent,Authority compared before and after a query,4,2,3,24,"REQ-PL-005, REQ-PL-014",open

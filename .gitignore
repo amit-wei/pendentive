@@ -1,0 +1,11 @@
+# Personal data never leaves this machine (REQ-PL-051).
+private/
+
+# Build loop is not design documentation and is not published (DEC-004).
+CLAUDE.md
+build/
+
+*.env
+.env*
+__pycache__/
+*.pyc

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Refuses the commit if the requirements dataset is inconsistent.
+# Enable once with:  git config core.hooksPath .githooks
+python3 requirements/validate.py || {
+    echo
+    echo "Commit refused: requirements dataset failed validation."
+    exit 1
+}

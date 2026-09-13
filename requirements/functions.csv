@@ -1,0 +1,13 @@
+id,name,definition,rationale,status
+FUN-PL-01,Life State Custody,"Holding, organising and serving the body of data describing the user's life, so that every agent reads the same picture.",Agents hold private partial views and contradict one another.,draft
+FUN-PL-02,Life Data Ingestion,"Acquiring data from external sources on a continuing basis, without the user carrying it between systems.",Data moved by hand is data that arrives late or not at all.,draft
+FUN-PL-03,Agent Coordination,"Directing work to agents, permitting agents to obtain answers from one another, and resolving contention, within a declared hierarchy.","The suite has no coordinator, and authority must be scoped by position.",draft
+FUN-PL-04,Work Management,Holding work as tracked tasks and carrying them across sessions and interruptions.,Work must outlive the conversation that created it.,draft
+FUN-PL-05,Condition Detection and Initiation,Evaluating declared conditions against life state and opening contact with the user unprompted.,Proactivity is impossible without scheduled evaluation and an outbound channel.,draft
+FUN-PL-06,Conversation and Reach,"Accepting and returning interaction by voice and by text, from whichever client the user is at.","Voice-led on phone, text-led on laptop, resumable across both.",draft
+FUN-PL-07,Authorization,Gating declared classes of action behind an explicit affirmative answer from the user.,Some actions are irreversible or reach other people.,draft
+FUN-PL-08,External Actuation,"Effecting change outside the system: calendar, files, messages, third-party systems.",Agents that cannot act can only advise.,draft
+FUN-PL-09,Provenance,"Recording how a belief was arrived at, and whether it was observed or inferred.",Inference presented as fact is indistinguishable from error.,draft
+FUN-PL-10,Agent Lifecycle Governance,"Defining, creating, revising and retiring agent definitions under change control.",Agents are components; the population will grow.,draft
+FUN-PL-11,Self-Observation,"Reporting the system's own cost, health and usage.",A ceiling discovered after the fact is not a ceiling.,draft
+FUN-PL-12,Behavioural Learning,"Deriving patterns and preferences from observed data, beyond what is stated explicitly.",Stated preferences are a fraction of actual ones.,draft
