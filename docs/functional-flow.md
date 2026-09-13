@@ -80,8 +80,9 @@ sitting in the flow of work.
 ## What it does not yet settle
 
 - Whether life state is one store or several.
-- Where the master copy of life state is held (`OPN-006`).
 
 Settled since this diagram was drawn: agents execute both inside the platform and
 from attached clients, by runtime rather than by agent (`DEC-002`); contention is
-arbitrated by a coordinator agent which escalates to the user (`DEC-009`).
+arbitrated by a coordinator agent which escalates to the user (`DEC-009`); life state
+is held on the host with a backup to Drive serving both recovery and degraded
+operation (`DEC-010`).

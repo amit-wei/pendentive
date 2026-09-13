@@ -3,4 +3,4 @@ OPN-001,Retention and expiry policy for life state.,system,2026-09-13,open
 OPN-002,Resolution when two agents write contradicting values for the same item.,system,2026-09-13,open
 OPN-003,Latency budget for a spoken turn.,system,2026-09-13,open
 OPN-004,Disposition of an authorization request that receives no answer.,system,2026-09-13,open
-OPN-006,Where the master copy of life state is held.,product,2026-09-13,open
+OPN-007,"What form the off-box copy takes, such that agents can work directly from it and not merely restore from it. A database dump recovers the host but is unusable by an agent.",system,2026-09-13,open
