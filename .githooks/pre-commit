@@ -1,8 +1,8 @@
 #!/bin/sh
-# Refuses the commit if the requirements dataset is inconsistent.
+# Refuses the commit if the system model is inconsistent.
 # Enable once with:  git config core.hooksPath .githooks
-python3 requirements/validate.py || {
+python3 model/validate_model.py || {
     echo
-    echo "Commit refused: requirements dataset failed validation."
+    echo "Commit refused: the system model failed validation."
     exit 1
 }

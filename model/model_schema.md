@@ -1,12 +1,41 @@
 # Requirements dataset — conventions
 
-Structured data under git. One file per register. Validated by `validate.py`,
-which runs on every commit via `.githooks/pre-commit`.
+Structured data under git, validated by `model/validate_model.py`, which runs on
+every commit via `.githooks/pre-commit`.
+
+## Layout
+
+```
+model/
+├── model_schema.md          this file
+├── validate_model.py        traceability enforcement
+├── product/                 one directory per decomposition level
+│   ├── product_functions.csv
+│   └── product_requirements.csv
+└── registers/               span every level, so they are single files
+    ├── design_decisions.csv     what the system is
+    ├── method_decisions.csv     how the model is written
+    ├── risk_register.csv
+    └── open_questions.csv
+```
+
+`model/` holds structured data that is validated. `docs/` holds prose and diagrams.
+The rule is mechanical: if `validate_model.py` reads it, it belongs in `model/`
+(`MET-007`). Levels are discovered, so adding `model/system/` requires no change to
+the validator. Filenames state what the file holds, lower case with underscores.
+
+## Decisions are of two kinds
+
+`design_decisions.csv` records what the system is — architecture, scope, behaviour.
+`method_decisions.csv` records how the model itself is written — identifiers,
+levels, what belongs where. Both are published; they answer different questions.
+Decisions about how the work is done are neither, and are held outside this
+repository.
 
 ## What is in scope
 
 These requirements constrain **the platform**, stated as properties observable from
-outside it (`DEC-007`). A requirement that names a store, a register, a definition
+outside it (`MET-005`). A requirement that names a store, a register, a definition
 file or any other internal part has assumed an architecture that has not been
 decided, and belongs to a level that does not yet exist.
 
@@ -17,7 +46,7 @@ Two tests:
 2. *Could this be verified entirely within one system?* If so, it belongs to that
    system, not here.
 
-Product requirements are therefore few and broad — one or two per function (`DEC-008`).
+Product requirements are therefore few and broad — one or two per function (`MET-006`).
 It is acceptable that they are vague. Specificity arrives with their children.
 
 They do not constrain:
@@ -27,7 +56,7 @@ They do not constrain:
 - **the user.** Obligations on a person are not requirements on a system.
 - **how the system is built.** Held outside this repository.
 
-`DEC-004` and `DEC-007` record the boundary. A requirement that fails it is moved or
+`MET-002` and `MET-005` record the boundary. A requirement that fails it is moved or
 deleted, not reworded.
 
 ## Identifier scheme
@@ -37,7 +66,7 @@ deleted, not reworded.
 | `FUN` | Function — a capability the system has. Never a "shall" | `FUN-<LVL>-<nn>` | `FUN-PL-03` |
 | `REQ` | Requirement — a "shall" constraining the design | `REQ-<LVL>-<nnn>` | `REQ-PL-012` |
 | `TST` | Verification case proving a requirement | `TST-<LVL>-<nnn>` | `TST-PL-012` |
-| `DEC` | Decision, with reason and reversal condition | `DEC-<nnn>` | `DEC-002` |
+| `DEC` | Decision, with reason and reversal condition | `DEC-<nnn>` | `MET-001` |
 | `RSK` | Failure mode, FMEA-scored | `RSK-<nnn>` | `RSK-002` |
 | `OPN` | Open question, held rather than guessed at | `OPN-<nnn>` | `OPN-003` |
 
@@ -45,7 +74,7 @@ deleted, not reworded.
 decomposition, each component one below that. An item's level is readable from its
 ID alone.
 
-Functions are flat at product level (`DEC-005`). Decomposition happens at system level.
+Functions are flat at product level (`MET-003`). Decomposition happens at system level.
 
 ## Function versus requirement
 
@@ -56,8 +85,9 @@ A **function** is a capability, named as one:
 
 A **requirement** is a "shall" constraining the design:
 
-> `REQ-PL-030` The platform shall not execute a gated invocation without a recorded
-> affirmative response from the user.
+> `REQ-PL-012` The platform shall distinguish actions requiring the user's
+> authorization from those that do not, and shall not perform such an action without
+> a recorded affirmative answer to a request stating that action.
 
 ## Where a requirement comes from
 
@@ -93,7 +123,7 @@ is identical at both levels.
 
 A requirement carries a verification **method**. Product requirements carry no
 acceptance criteria, because they are broad by nature and the specificity belongs to
-their children (`DEC-006`). Criteria live in `TST-` entries at system and component
+their children (`MET-004`). Criteria live in `TST-` entries at system and component
 level.
 
 A requirement may be verified only once all of its children and grandchildren have

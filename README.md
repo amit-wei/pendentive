@@ -15,35 +15,44 @@ decided.
 
 ## Layout
 
-| Path | Contents |
-|---|---|
-| `requirements/` | The requirements dataset. Structured data, validated on commit |
-| `requirements/SCHEMA.md` | Conventions: identifiers, columns, what belongs at this level |
-| `docs/` | Design notes and diagrams |
+```
+model/     structured data, machine-validated. The source of truth
+docs/      prose and diagrams
+```
 
-## The dataset
+The rule is mechanical: if `validate_model.py` reads it, it belongs in `model/`.
 
-| File | Holds |
-|---|---|
-| `functions.csv` | What the system does. Capabilities, not "shall" statements |
-| `requirements.csv` | "Shall" statements constraining the design |
-| `decisions.csv` | Choices made, with reasons and reversal conditions |
-| `risks.csv` | FMEA over the design |
-| `open-questions.csv` | Known unknowns, held rather than guessed at |
+```
+model/
+├── model_schema.md              conventions: identifiers, columns, levels
+├── validate_model.py            traceability enforcement
+├── product/
+│   ├── product_functions.csv    12 functions. Capabilities, not "shall" statements
+│   └── product_requirements.csv 23 requirements, one origin each
+└── registers/
+    ├── design_decisions.csv     what the system is
+    ├── method_decisions.csv     how the model is written
+    ├── risk_register.csv        FMEA over the design
+    └── open_questions.csv       unknowns held rather than guessed at
+```
 
-Twelve functions, twenty-three requirements. Product requirements are few and broad
-by design; specificity arrives with their children at system and component level.
+One directory per decomposition level. `system/` and `component/` arrive with the
+decomposition; the validator discovers levels rather than hard-coding them.
+
+Product requirements are few and broad by design — one or two per function. It is
+acceptable that they are vague. Specificity arrives with their children.
 
 ## Checking it
 
 ```
-python3 requirements/validate.py
+python3 model/validate_model.py
 ```
 
-Verifies that identifiers are well-formed and unique, that every requirement has
-exactly one origin which resolves, that its type matches that origin, that
-controlled vocabularies hold, and that every cross-reference in the decisions and
-the documentation points at something real.
+Verifies that identifiers are well formed and unique, that every requirement has
+exactly one origin which resolves, that its type matches that origin, that every
+child names a parent that exists, that controlled vocabularies hold, that every risk
+names a mitigation, and that every cross-reference in the registers, the schema, the
+README and the documentation points at something real.
 
 Enable the pre-commit hook once:
 

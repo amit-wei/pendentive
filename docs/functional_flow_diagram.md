@@ -82,7 +82,7 @@ sitting in the flow of work.
 - Whether life state is one store or several.
 
 Settled since this diagram was drawn: agents execute both inside the platform and
-from attached clients, by runtime rather than by agent (`DEC-002`); contention is
-arbitrated by a coordinator agent which escalates to the user (`DEC-009`); life state
+from attached clients, by runtime rather than by agent (`MET-001`); contention is
+arbitrated by a coordinator agent which escalates to the user (`DEC-003`); life state
 is held on the host with a backup to Drive serving both recovery and degraded
-operation (`DEC-010`).
+operation (`MET-002`).
