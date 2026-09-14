@@ -1,7 +1,7 @@
-# Personal data never leaves this machine (REQ-PL-051).
+# Personal data never leaves this machine (REQ-PL-023, RSK-PL-005).
 private/
 
-# Build loop is not design documentation and is not published (DEC-004).
+# The build loop is not design documentation and is not published (MET-002).
 CLAUDE.md
 build/
 

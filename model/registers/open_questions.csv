@@ -1,6 +1,18 @@
-id,question,resolves_at,raised,status
-OPN-001,Retention and expiry policy for life state.,system,2026-09-13,open
-OPN-002,Resolution when two agents write contradicting values for the same item.,system,2026-09-13,open
-OPN-003,Latency budget for a spoken turn.,system,2026-09-13,open
-OPN-004,Disposition of an authorization request that receives no answer.,system,2026-09-13,open
-OPN-007,"What form the off-box copy takes, such that agents can work directly from it and not merely restore from it. A database dump recovers the host but is unusable by an agent.",system,2026-09-13,open
+id,question,resolves_at,raised,status,closed_by
+OPN-001,What is the retention and expiry policy for life state?,system,2026-09-13,open,
+OPN-002,What occurs when two agents write different values for the same item?,system,2026-09-13,open,
+OPN-003,What is the latency budget for a spoken turn?,system,2026-09-13,open,
+OPN-004,What occurs to an authorization request that gets no answer?,system,2026-09-13,open,
+OPN-007,"What form does the copy away from the host take, so that an agent can work from it and not only restore from it? A database dump can recover the host, but an agent cannot use it.",system,2026-09-13,open,
+OPN-008,"Where reasoning that belongs to no agent is owned. Whether the platform selects a model for its own evaluation work, or all reasoning is reached through an agent definition that names its own.",system,2026-09-14,open,
+OPN-009,"Whether an agent definition arriving from outside the platform is validated or constrained on intake, and against what.",system,2026-09-14,open,
+OPN-010,"Whether authorization is binary or tiered by class of consequence, given actuation extending to funds, messages and physical devices.",system,2026-09-14,open,
+OPN-011,"Whether derived summaries are maintained on a schedule or computed when asked for, and how staleness is bounded either way.",system,2026-09-14,open,
+OPN-012,Is a derived value that its sources no longer support the same as a superseded value? REQ-PL-001 speaks only about superseded values.,product,2026-09-14,closed,DEC-011
+OPN-013,"Does the platform limit the part of life state that it serves to each agent? If it does, does a request outside the limit fail, or does it pass to an agent that has a wider scope?",product,2026-09-14,closed,REQ-PL-024
+OPN-014,"An agent changes an external system that is also a source. Life state does not agree with the world until the next acquisition. Does the platform write the change into life state immediately, or does the agent wait?",system,2026-09-14,closed,DEC-009
+OPN-015,How far is life state permitted to lag its source? REQ-PL-004 covers a source that stops. It does not cover a source that is late.,system,2026-09-14,closed,REQ-IN-011
+OPN-016,"Where does a read of an external system belong when it is not acquisition and it changes nothing, such as a web search? FUN-PL-08 is limited to change. FUN-PL-02 is limited to declared continuing sources.",product,2026-09-14,closed,DEC-008
+OPN-017,"How is an external source added, changed and removed? Can an agent propose a source, or does only the user declare one?",system,2026-09-14,closed,DEC-012
+OPN-018,"What occurs when the credentials for an external service stop being valid? The platform cannot continue without a person, and no requirement covers work that the platform raises to maintain itself.",product,2026-09-14,closed,REQ-PL-025
+OPN-019,"Who may write to life state? The model assumes that agents write, because OPN-002 asks what occurs when two agents write different values. No requirement states it.",product,2026-09-14,closed,DEC-010

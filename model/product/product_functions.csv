@@ -1,13 +1,14 @@
 id,name,definition,rationale,status
-FUN-PL-01,Life State Custody,"Holding, organising and serving the body of data describing the user's life, so that every agent reads the same picture.",Agents hold private partial views and contradict one another.,draft
-FUN-PL-02,Life Data Ingestion,"Acquiring data from external sources on a continuing basis, without the user carrying it between systems.",Data moved by hand is data that arrives late or not at all.,draft
-FUN-PL-03,Agent Coordination,"Directing work to agents, permitting agents to obtain answers from one another, and resolving contention, within a declared hierarchy.","The suite has no coordinator, and authority must be scoped by position.",draft
-FUN-PL-04,Work Management,Holding work as tracked tasks and carrying them across sessions and interruptions.,Work must outlive the conversation that created it.,draft
-FUN-PL-05,Condition Detection and Initiation,Evaluating declared conditions against life state and opening contact with the user unprompted.,Proactivity is impossible without scheduled evaluation and an outbound channel.,draft
-FUN-PL-06,Conversation and Reach,"Accepting and returning interaction by voice and by text, from whichever client the user is at.","Voice-led on phone, text-led on laptop, resumable across both.",draft
-FUN-PL-07,Authorization,Gating declared classes of action behind an explicit affirmative answer from the user.,Some actions are irreversible or reach other people.,draft
-FUN-PL-08,External Actuation,"Effecting change outside the system: calendar, files, messages, third-party systems.",Agents that cannot act can only advise.,draft
-FUN-PL-09,Provenance,"Recording how a belief was arrived at, and whether it was observed or inferred.",Inference presented as fact is indistinguishable from error.,draft
-FUN-PL-10,Agent Lifecycle Governance,"Defining, creating, revising and retiring agent definitions under change control.",Agents are components; the population will grow.,draft
-FUN-PL-11,Self-Observation,"Reporting the system's own cost, health and usage.",A ceiling discovered after the fact is not a ceiling.,draft
-FUN-PL-12,Behavioural Learning,"Deriving patterns and preferences from observed data, beyond what is stated explicitly.",Stated preferences are a fraction of actual ones.,draft
+FUN-PL-01,Life State Custody,Holds the data that describes the life of the user. Organises it and serves it. All agents read the same data.,Agents keep their own part of the data. Their answers do not agree.,draft
+FUN-PL-02,Life Data Ingestion,Acquires data from external sources continuously. The user does not move data between systems.,"Data that a person moves arrives late, or does not arrive.",draft
+FUN-PL-03,Agent Coordination,Sends work to agents. Lets an agent get an answer from another agent. Resolves contention. All of this occurs in a declared hierarchy.,The set of agents has no coordinator. The position of an agent must set its authority.,draft
+FUN-PL-04,Work Management,Holds work as tasks. Keeps the tasks through sessions and interruptions.,Work must continue after the conversation that made it stops.,draft
+FUN-PL-05,Condition Detection and Initiation,Evaluates declared conditions against life state. Starts contact with the user without a request.,The system cannot start work by itself without a scheduled evaluation and a channel to the user.,draft
+FUN-PL-06,Conversation and Reach,Accepts and returns interaction by speech and by text. The user can use any client.,The user speaks on a telephone and writes on a laptop. An exchange must continue on either one.,draft
+FUN-PL-07,Authorization,Stops a declared class of action until the user gives an affirmative answer.,You cannot reverse some actions. Some actions reach other people.,draft
+FUN-PL-08,External Actuation,"Makes changes outside the system, such as to a calendar, a file, a message or an external system.",An agent that cannot act can only give advice.,draft
+FUN-PL-09,Provenance,"Records how the system got a value, and if the system observed the value or inferred it.",You cannot tell the difference between an inference that looks like a fact and an error.,draft
+FUN-PL-10,Agent Lifecycle Governance,"Defines, makes, changes and retires agent definitions under change control.",Agents are components. Their number will increase.,draft
+FUN-PL-11,Self-Observation,"Reports the cost, the health and the usage of the system itself.",A limit that you find after you pass it is not a limit.,draft
+FUN-PL-12,Behavioural Learning,Derives patterns and preferences from observed data. These are more than the preferences that the user states.,A user states only some of their preferences.,draft
+FUN-PL-13,Self-Maintenance,"Keeps the platform able to operate. Raises the work that this needs, and asks the user when the platform cannot do the work alone.","A credential stops being valid. A new source needs approval. The platform cannot continue, and no agent raised the need.",draft
