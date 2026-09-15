@@ -1,0 +1,9 @@
+id,from,to,item,supplied_by,accepted_by,status
+INT-PL-01,IN,ST,the origin of an item,REQ-IN-006,REQ-ST-002,draft
+INT-PL-02,IN,ST,the time at which the platform received an item,REQ-IN-022,REQ-ST-003,draft
+INT-PL-03,IN,ST,the time of an observation,REQ-IN-018,REQ-ST-033,draft
+INT-PL-04,IN,ST,the identifier of an item,REQ-IN-007,REQ-ST-008,draft
+INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030,draft
+INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
+INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
+INT-PL-08,ST,TBD,the origin and the times of a value that is served,REQ-ST-014,TBD,draft

@@ -11,8 +11,9 @@ functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
 **Status:** the product functions and requirements are written. The product is
-divided into ten systems. Ingestion has functions and requirements. The other
-nine systems are empty.
+divided into ten systems. Ingestion is complete at system level: functions,
+requirements, risks and safety requirements. State Custody has functions and
+requirements. The other eight systems are empty.
 
 ## Layout
 
@@ -29,9 +30,10 @@ model/
 ├── validate_model.py            traceability enforcement
 ├── product/                     the decomposition tree
 │   ├── product_functions.csv    13 functions. Capabilities, not "shall" statements
-│   ├── product_requirements.csv 25 requirements, one origin each
+│   ├── product_requirements.csv 26 requirements, one origin each
 │   ├── product_risks.csv        FMEA over this level
-│   └── <system>/                one directory for each of the nine systems
+│   ├── product_interfaces.csv   what crosses between systems, and who states it
+│   └── <system>/                one directory for each of the ten systems
 └── registers/
     ├── design_decisions.csv     what the system is
     ├── method_decisions.csv     how the model is written
@@ -59,8 +61,11 @@ Verifies that identifiers are well formed and unique, that every requirement has
 exactly one origin which resolves, that its type matches that origin, that every
 child names a parent that exists, that controlled vocabularies hold, that every risk
 names a mitigation and an RPN equal to the product of its factors, that a safety
-requirement sits at the level of the risk it answers, and that every cross-reference in the registers, the schema, the README and
-the documentation points at something real.
+requirement sits at the level of the risk it answers, that each side of an
+interface is a requirement in the compartment that the row names and that no
+interface requirement is left without a row, and that every cross-reference in
+the registers, the schema, the README and the documentation points at something
+real.
 
 Enable the pre-commit hook once:
 

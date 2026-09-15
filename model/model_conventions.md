@@ -67,6 +67,7 @@ do not generate it (`MET-017`).
 | `REQ` | a "shall" that constrains the design | `REQ-<path>-nnn` |
 | `TST` | a case that verifies a requirement | `TST-<path>-nnn` |
 | `RSK` | a failure mode, scored by FMEA | `RSK-<path>-nnn` |
+| `INT` | one thing that crosses between two compartments | `INT-<owner>-nn` |
 | `DEC` | a decision about what the system is | `DEC-nnn` |
 | `MET` | a decision about how the model is written | `MET-nnn` |
 | `OPN` | a question that is held, not guessed at | `OPN-nnn` |
@@ -76,6 +77,20 @@ do not generate it (`MET-017`).
 A function is a capability. It is never a "shall". Size is not a criterion. A
 function can be small or large, and that is not a reason to merge it or to divide
 it. The criterion is one capability in one row (`MET-012`).
+
+## Interfaces
+
+An interface is held by the compartment that holds both of its sides
+(`MET-018`). The product level holds the interfaces between systems, in
+`product_interfaces.csv`. A system holds the interfaces between its subsystems.
+
+One row names **one thing that crosses**, not one interface. The row holds the
+requirement that states what the supplier gives and the requirement that states
+what the receiver accepts. It does not hold the content of the contract, which
+stays in the requirement text.
+
+A requirement of type `interface` must appear in a row. A side that is not
+decomposed yet is written as `TBD`.
 
 ## Level
 
@@ -113,6 +128,9 @@ link is in the `mitigation` column of the risk, not in `generated_from`.
 
 **Risks:** `id`, `failure_mode`, `cause`, `effect`, `detection`, `S`, `L`, `D`,
 `RPN`, `mitigation`, `status`.
+
+**Interfaces:** `id`, `from`, `to`, `item`, `supplied_by`, `accepted_by`,
+`status`.
 
 **Decisions:** `id`, `date`, `decision`, `reason`, `reverses_if`, `status`,
 `superseded_by`.

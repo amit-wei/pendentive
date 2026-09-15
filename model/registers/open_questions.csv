@@ -1,6 +1,6 @@
 id,question,resolves_at,raised,status,closed_by
-OPN-001,What is the retention and expiry policy for life state?,system,2026-09-13,open,
-OPN-002,What occurs when two agents write different values for the same item?,system,2026-09-13,open,
+OPN-001,What is the retention and expiry policy for life state?,system,2026-09-13,closed,DEC-021
+OPN-002,What occurs when two agents write different values for the same item?,system,2026-09-13,closed,DEC-022
 OPN-003,What is the latency budget for a spoken turn?,system,2026-09-13,open,
 OPN-004,What occurs to an authorization request that gets no answer?,system,2026-09-13,open,
 OPN-007,"What form does the copy away from the host take, so that an agent can work from it and not only restore from it? A database dump can recover the host, but an agent cannot use it.",system,2026-09-13,open,
@@ -18,4 +18,5 @@ OPN-018,"What occurs when the credentials for an external service stop being val
 OPN-019,"Who may write to life state? The model assumes that agents write, because OPN-002 asks what occurs when two agents write different values. No requirement states it.",product,2026-09-14,closed,DEC-010
 OPN-020,"Does State Custody state the write contract for every writer? REQ-IN-006 and REQ-IN-007 make Ingestion supply the origin, the time of the observation and a stable identifier. If State Custody states this for all writers, the Ingestion requirements are redundant and drop.",system,2026-09-15,closed,DEC-014
 OPN-021,Does a change to the definition of a source need the authorization of the user when the change widens the data that the platform acquires? REQ-PL-013 covers the grant of access to an external service. It does not cover a wider grant at a service that the user authorized before.,system,2026-09-15,closed,DEC-013
-OPN-022,"Does system level need an interface artifact that both sides of a contract name? DEC-014 states a contract on two sides, and REQ-IN-005 already names the form that State Custody accepts, which is not held anywhere in the model.",system,2026-09-15,open,
+OPN-022,"Does system level need an interface artifact that both sides of a contract name? DEC-014 states a contract on two sides, and REQ-IN-005 already names the form that State Custody accepts, which is not held anywhere in the model.",system,2026-09-15,closed,MET-018
+OPN-023,"How is an answer to a query by meaning judged, and what mitigates RSK-ST-001? The failure has no correct answer that a person can state in advance, so the criteria are TST- entries below system level.",subsystem,2026-09-15,open,

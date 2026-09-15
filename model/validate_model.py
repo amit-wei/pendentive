@@ -9,9 +9,9 @@ Run:       python3 model/validate_model.py
 Exit code: 0 if valid, 1 if any ERROR was found.
 
 Levels are discovered, not hard-coded: any directory under model/ holding a file
-named *_requirements.csv is treated as a decomposition level. Risks are
-discovered the same way, from *_risks.csv. Adding model/system/ with either
-in it needs no change here.
+named *_requirements.csv is treated as a decomposition level. Risks and
+interfaces are discovered the same way, from *_risks.csv and *_interfaces.csv.
+Adding model/system/ with any of them in it needs no change here.
 """
 
 import csv
@@ -36,6 +36,7 @@ PATH_CODES = r"[A-Z]{2}(?:-[A-Z]{2}){0,2}"
 FUNCTION_ID = re.compile(rf"^FUN-{PATH_CODES}-\d{{2}}$")
 REQUIREMENT_ID = re.compile(rf"^REQ-{PATH_CODES}-\d{{3}}$")
 RISK_ID = re.compile(rf"^RSK-{PATH_CODES}-\d{{3}}$")
+INTERFACE_ID = re.compile(rf"^INT-{PATH_CODES}-\d{{2}}$")
 CONSTRAINT_SOURCE = re.compile(r"^Constraint: .+$")    # Constraint: Amit
 
 VERIFICATION = {"Inspection", "Analysis", "Demonstration", "Test"}
@@ -60,7 +61,7 @@ TYPE_BY_SOURCE = {
 
 # Anything shaped like an identifier, wherever it appears in prose.
 REFERENCE = re.compile(
-    rf"\b(?:FUN|REQ|RSK)-{PATH_CODES}-\d{{2,3}}\b|\b(?:OPN|DEC|MET)-\d{{3}}\b")
+    rf"\b(?:FUN|REQ|RSK|INT)-{PATH_CODES}-\d{{2,3}}\b|\b(?:OPN|DEC|MET)-\d{{3}}\b")
 
 
 def compartment_of(identifier):
@@ -81,11 +82,12 @@ def main():
     # -- Discover the decomposition levels ------------------------------------
     # A risk is a failure mode of one compartment, so it lives with that
     # compartment rather than in a register spanning every level (MET-008).
-    functions, requirements, risks = [], [], []
+    functions, requirements, risks, interfaces = [], [], [], []
     by_directory = {}          # directory -> set of compartments found in it
     for kind, bucket in (("functions", functions),
                          ("requirements", requirements),
-                         ("risks", risks)):
+                         ("risks", risks),
+                         ("interfaces", interfaces)):
         for path in sorted(glob.glob(
                 os.path.join(MODEL, "**", f"*_{kind}.csv"), recursive=True)):
             rows = load(path)
@@ -330,14 +332,92 @@ def main():
             if ref not in requirement_ids:
                 errors.append(f"{row['id']}: mitigation names {ref}, which does not exist")
 
+    # -- Interfaces: one thing that crosses, named once by both sides ---------
+    # A contract stated on both sides (DEC-014) drifts, and it drifts in the
+    # words before it drifts in the substance. Ingestion supplies "the source
+    # that supplied the item" and State Custody refuses a write that does not
+    # state its "origin". Both were written in one session with both texts in
+    # view, and they already use two words for one thing. A row names the thing
+    # one time and holds the requirement on each side of it, so the two sides
+    # cannot be written apart without the row showing it (MET-018).
+    path_of = {compartment: path for path, compartment in declared.items()}
+    requirement_status = {row["id"]: row["status"].strip() for row in requirements}
+    registered = set()
+
+    interface_ids = set()
+    for row in interfaces:
+        iid = row["id"]
+        if not INTERFACE_ID.match(iid):
+            errors.append(f"{iid}: malformed interface identifier (expected INT-PL-nn)")
+        if iid in interface_ids:
+            errors.append(f"{iid}: duplicate interface identifier")
+        interface_ids.add(iid)
+
+        owner = compartment_of(iid)
+        status = row["status"].strip()
+        if status not in STATUS:
+            errors.append(f"{iid}: status '{status}' not allowed")
+        if not row["item"].strip():
+            errors.append(f"{iid}: no item recorded")
+
+        # An interface is held by the compartment that holds both of its sides.
+        # Held anywhere else, one contract has two owners and neither maintains
+        # it. TBD is a side that is not decomposed yet (rule 13).
+        for column in ("from", "to"):
+            side = row[column].strip()
+            if side == "TBD":
+                continue
+            if side not in path_of:
+                errors.append(
+                    f"{iid}: {column} names {side}, which compartments.csv does "
+                    f"not declare")
+            elif owner in path_of and os.path.dirname(path_of[side]) != path_of[owner]:
+                errors.append(
+                    f"{iid}: {column} is {side}, which is not directly below "
+                    f"{owner}, the compartment that holds this file")
+
+        # The supplier states what it gives and the receiver states what it
+        # accepts. A requirement named on the wrong side is the mistake here,
+        # and it is invisible to a reader of either file alone.
+        for column, side_column in (("supplied_by", "from"), ("accepted_by", "to")):
+            named = row[column].strip()
+            side = row[side_column].strip()
+            if named == "TBD":
+                continue
+            if named not in requirement_ids:
+                errors.append(f"{iid}: {column} names {named}, which does not exist")
+                continue
+            registered.add(named)
+            if side != "TBD" and compartment_of(named) != side:
+                errors.append(
+                    f"{iid}: {column} names {named}, which is not in {side}")
+            if requirement_status[named] == "dropped" and status != "dropped":
+                errors.append(
+                    f"{iid}: {column} names {named}, which is dropped, while the "
+                    f"interface is not")
+
+    # An interface requirement that no row names is one side of a contract whose
+    # other side nobody wrote. This is the check that stops the file rotting.
+    # Product level is exempt: its interface is to the world outside the model,
+    # and no compartment above it exists to hold the row.
+    for row in requirements:
+        if (row["type"].strip() == "interface"
+                and compartment_of(row["id"]) != "PL"
+                and row["id"] not in registered):
+            errors.append(
+                f"{row['id']}: typed interface, but no interfaces file names it")
+
     # -- Every cross-reference anywhere must resolve --------------------------
     # Identifiers shift when a set is consolidated or split. A reference left
     # behind in a decision, a diagram or the schema then points at nothing, and
     # nobody notices. This has happened twice; hence the check.
-    known = function_ids | requirement_ids | risk_ids | question_ids | decision_ids
+    known = (function_ids | requirement_ids | risk_ids | question_ids
+             | decision_ids | interface_ids)
     targets = sorted(glob.glob(os.path.join(REGISTERS, "*.csv")))
     targets += sorted(glob.glob(
         os.path.join(MODEL, "**", "*_risks.csv"), recursive=True))
+    targets += sorted(glob.glob(
+        os.path.join(MODEL, "**", "*_interfaces.csv"), recursive=True))
     targets.append(os.path.join(MODEL, "model_conventions.md"))
     targets.append(os.path.join(REPO, "README.md"))
     targets.append(os.path.join(REPO, "CLAUDE.md"))
@@ -365,7 +445,8 @@ def main():
 
     print()
     print(f"{len(functions)} functions, {len(requirements)} requirements, "
-          f"{len(risks)} risks, {len(decisions)} decisions, "
+          f"{len(risks)} risks, {len(interfaces)} interfaces, "
+          f"{len(decisions)} decisions, "
           f"{len(questions)} open questions, "
           f"{len(errors)} errors, {len(warnings)} warnings.")
     return 1 if errors else 0

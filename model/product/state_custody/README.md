@@ -4,4 +4,6 @@ Holds life state, and serves it.
 
 From `FUN-PL-01` and `FUN-PL-09`. Holds what `FUN-PL-12` derives.
 
-The functions and requirements of this system are not yet written.
+Ten functions, thirty-five requirements and eleven risks. Four of the requirements
+are safety requirements that answer those risks. `RSK-ST-001` is the
+highest-scored risk in the model and its mitigation is `TBD` (`OPN-023`).
