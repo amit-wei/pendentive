@@ -42,6 +42,23 @@ held in `registers/`.
 
 A risk has no parent (`MET-014`). RPN ranks risks inside one compartment only.
 
+## Risks
+
+A failure mode is a failure of a compartment, as seen from outside that
+compartment. The functions of the compartment check that the FMEA covers it. They
+do not generate it (`MET-017`).
+
+`S`, `L` and `D` are scored from 1 to 5 against these anchors, at every level
+(`MET-016`). `RPN` is their product.
+
+| | `S` severity | `L` likelihood | `D` detection |
+|---|---|---|---|
+| 1 | Nobody sees it | Needs two independent faults | The platform reports it |
+| 2 | An answer is less useful | One time each year | A person sees it in a report that the person already reads |
+| 3 | An agent is wrong and the user can see that it is wrong | One time each quarter | A person finds it if the person looks |
+| 4 | An agent is wrong and the answer looks correct | One time each month | A person finds it only when the person traces a wrong answer back |
+| 5 | The user stops the use of the system, or nobody can reverse the effect | Continuous, or by design | Nobody finds it |
+
 ## Identifiers
 
 | Prefix | Meaning | Shape |
