@@ -7,3 +7,6 @@ INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
 INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
 INT-PL-08,ST,TBD,the origin and the times of a value that is served,REQ-ST-014,TBD,draft
+INT-PL-09,AD,WC,the position of an agent and what it admits,TBD,TBD,draft
+INT-PL-10,WC,IA,a unit of work that waits for a person,TBD,TBD,draft
+INT-PL-11,TBD,WC,a unit of work that a system raises,TBD,TBD,draft
