@@ -1,0 +1,36 @@
+id,requirement_id,criterion,status
+TST-AD-001,REQ-AD-001,TBD,draft
+TST-AD-002,REQ-AD-002,The system refuses what states an agent that names a position which the system does not hold as declared.,draft
+TST-AD-003,REQ-AD-003,The system refuses what states an agent that names a position which the position of the caller does not state that it may confer.,draft
+TST-AD-004,REQ-AD-004,"After the act, the system gives the new agent with the position that the caller named and with the place that the caller named.",draft
+TST-AD-005,REQ-AD-005,The system accepts a change to the identity of an agent from that agent.,draft
+TST-AD-006,REQ-AD-005,The system accepts a change to the identity of an agent from the parent of that agent.,draft
+TST-AD-007,REQ-AD-005,The system refuses a change to the identity of an agent from a caller that is not that agent and is not the parent of that agent.,draft
+TST-AD-008,REQ-AD-006,"After an agent is retired, the system gives no position that has that agent as a holder.",draft
+TST-AD-009,REQ-AD-007,"The system gives what states an agent after the platform stops and starts, and what it gives is what it gave before the platform stopped.",draft
+TST-AD-010,REQ-AD-008,"The system gives, for one agent, the identity of that agent and the identity of the position that the agent holds.",draft
+TST-AD-011,REQ-AD-009,"After two changes to an agent, the system gives both earlier configurations, each with the time of its change and the caller that made it.",draft
+TST-AD-012,REQ-AD-010,"After an agent is retired, the system gives what that agent was.",draft
+TST-AD-013,REQ-AD-011,"The system accepts a declaration of a position that states a part of each body, a set of acts, and the positions that its holder may confer.",draft
+TST-AD-014,REQ-AD-014,"The system gives, for one agent, the position of that agent and the part of each body, the acts and the positions to confer that the position admits.",draft
+TST-AD-015,REQ-AD-015,TBD,draft
+TST-AD-016,REQ-AD-016,The system gives the place of each agent in the declared hierarchy.,draft
+TST-AD-017,REQ-AD-017,"The system refuses a change of place of an agent from a caller that is not the first common relative of that agent, of its present parent and of its new parent.",draft
+TST-AD-018,REQ-AD-018,The system refuses a change to what states an agent from a caller whose position does not admit that act.,draft
+TST-AD-019,REQ-AD-019,The system refuses the declaration of a position from a caller whose position does not admit that act.,draft
+TST-AD-020,REQ-AD-020,The system refuses the conferral of a position that the position of the caller does not state that it may confer.,draft
+TST-AD-021,REQ-AD-021,An agent that asks for the rules for work with the platform receives them.,draft
+TST-AD-022,REQ-AD-023,Two agents that ask for the rules receive the same rules.,draft
+TST-AD-023,REQ-AD-024,"The system gives the set of agents that it holds, with the position that each agent holds.",draft
+TST-AD-024,REQ-AD-025,The system gives to a caller no agent that the position of that caller does not admit.,draft
+TST-AD-025,REQ-AD-026,"A runtime outside the platform uses an agent from the form that the system gives, while the platform does not run.",draft
+TST-AD-026,REQ-AD-028,The system gives one position as the receiver of a unit of work that names no agent.,draft
+TST-AD-027,REQ-AD-030,"After the act, the system gives an agent that already existed as a holder of the position that was conferred.",draft
+TST-AD-028,REQ-AD-031,"The system refuses a conferral of a position that declares a parameter, when the conferral does not bind that parameter.",draft
+TST-AD-029,REQ-AD-032,The system reports when no agent holds the position that receives a unit of work that names no agent.,draft
+TST-AD-030,REQ-AD-033,"After the platform stops between the report of a change as accepted and the next read, the system gives that change.",draft
+TST-AD-031,REQ-AD-034,TBD,draft
+TST-AD-032,REQ-AD-035,The caller of a change that the system refuses receives the refusal and the reason for it.,draft
+TST-AD-033,REQ-AD-036,"A copy that the system gives while what states an agent is changing holds a state that the system held at one time, and holds no part of a later state.",draft
+TST-AD-034,REQ-AD-037,"The system restores what states an agent from a copy that it gave, and then gives what it gave at the time that the copy was made.",draft
+TST-AD-035,REQ-AD-038,The system accepts a change to the identity of a position.,draft
