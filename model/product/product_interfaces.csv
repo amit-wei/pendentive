@@ -14,3 +14,8 @@ INT-PL-12,AD,WC,the position that receives a unit of work that names no agent,RE
 INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,TBD,draft
 INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,TBD,draft
 INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,TBD,draft
+INT-PL-16,AU,AD,the declared classes of action that need the authorization of the user,REQ-AU-006,TBD,draft
+INT-PL-17,TBD,AU,"an action that a caller prepared, and the object of that action, for classification",TBD,REQ-AU-005,draft
+INT-PL-18,AU,TBD,whether an action that a caller prepared is in a declared class,REQ-AU-004,TBD,draft
+INT-PL-19,WC,AU,"the affirmative answer of the user to a request that states the declaration, the change or the removal of a class",TBD,REQ-AU-003,draft
+INT-PL-20,AD,AU,the position of a caller and what it admits,REQ-AD-014,REQ-AU-012,draft
