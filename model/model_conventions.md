@@ -132,14 +132,37 @@ link is in the `mitigation` column of the risk, not in `generated_from`.
 **Interfaces:** `id`, `from`, `to`, `item`, `supplied_by`, `accepted_by`,
 `status`.
 
+**Tests:** `id`, `requirement_id`, `criterion`, `status`. One row verifies one
+requirement, and it is held in the compartment of that requirement. A product
+requirement carries no criterion (`MET-004`), so no row names one.
+
 **Decisions:** `id`, `date`, `decision`, `reason`, `reverses_if`, `status`,
 `superseded_by`.
+
+**Questions:** `id`, `question`, `resolves_at`, `raised`, `status`, `closed_by`.
+`closed_by` holds one or more identifiers, separated by spaces or by commas, and
+each one must be a decision or a requirement that exists (`MET-019`). It reads the
+same way as the `mitigation` column of a risk.
 
 `verification` is `Inspection`, `Analysis`, `Demonstration` or `Test`. These are the
 four methods that `GOALS.md` uses, so the method is the same at every level.
 
-`status` is `draft`, `agreed`, `implemented`, `verified` or `dropped` for a
-requirement. For a decision it is `proposed`, `agreed`, `superseded` or `reversed`.
+Every row carries a `status`. The vocabulary is per kind of row and the validator
+checks each one (`MET-020`).
+
+| Kind | `status` |
+|---|---|
+| requirement, function, interface, test | `draft`, `agreed`, `implemented`, `verified`, `dropped` |
+| risk | `open`, `mitigated`, `dropped` |
+| decision | `proposed`, `agreed`, `superseded`, `reversed` |
+
+A risk is `mitigated` when its mitigation names a requirement that stands. The
+verification of that requirement is the status of the requirement and is not
+repeated on the risk.
+
+Nothing leaves `draft` until the decomposition is finished and a v1 scope exists
+(`BLD-OPN-009`). At that point every row that v1 touches becomes `agreed`, which is
+what `agreed` means: in scope and red-lined, not merely written.
 
 `RPN` is the product of `S`, `L` and `D`.
 

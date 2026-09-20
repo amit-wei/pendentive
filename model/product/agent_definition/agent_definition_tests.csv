@@ -34,3 +34,7 @@ TST-AD-032,REQ-AD-035,The caller of a change that the system refuses receives th
 TST-AD-033,REQ-AD-036,"A copy that the system gives while what states an agent is changing holds a state that the system held at one time, and holds no part of a later state.",draft
 TST-AD-034,REQ-AD-037,"The system restores what states an agent from a copy that it gave, and then gives what it gave at the time that the copy was made.",draft
 TST-AD-035,REQ-AD-038,The system accepts a change to the identity of a position.,draft
+TST-AD-036,REQ-AD-039,The system accepts the declaration of a position from an agent.,draft
+TST-AD-037,REQ-AD-039,The system refuses the declaration of a position from a caller that is not an agent.,draft
+TST-AD-038,REQ-AD-039,The system accepts a change to a position from an agent.,draft
+TST-AD-039,REQ-AD-039,The system refuses a change to a position from a caller that is not an agent.,draft

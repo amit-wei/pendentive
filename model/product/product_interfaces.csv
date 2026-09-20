@@ -19,3 +19,4 @@ INT-PL-17,TBD,AU,"an action that a caller prepared, and the object of that actio
 INT-PL-18,AU,TBD,whether an action that a caller prepared is in a declared class,REQ-AU-004,TBD,draft
 INT-PL-19,WC,AU,"the affirmative answer of the user to a request that states the declaration, the change or the removal of a class",TBD,REQ-AU-003,draft
 INT-PL-20,AD,AU,the position of a caller and what it admits,REQ-AD-014,REQ-AU-012,draft
+INT-PL-21,WC,AD,the declared resources and the owner of each,REQ-WC-039,REQ-AD-040,draft

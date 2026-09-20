@@ -39,6 +39,7 @@ model/
 │   ├── product_risks.csv        FMEA over this level
 │   ├── product_interfaces.csv   what crosses between systems, and who states it
 │   └── <system>/                one directory for each of the ten systems
+│       └── <system>_tests.csv   acceptance criteria, one requirement each
 └── registers/
     ├── design_decisions.csv     what the system is
     ├── method_decisions.csv     how the model is written
@@ -68,9 +69,10 @@ child names a parent that exists, that controlled vocabularies hold, that every 
 names a mitigation and an RPN equal to the product of its factors, that a safety
 requirement sits at the level of the risk it answers, that each side of an
 interface is a requirement in the compartment that the row names and that no
-interface requirement is left without a row, and that every cross-reference in
-the registers, the schema, the README and the documentation points at something
-real.
+interface requirement is left without a row, that every acceptance criterion names
+one requirement that exists in its own compartment and that no criterion is written
+against a product requirement, and that every cross-reference in the registers, the
+schema, the README and the documentation points at something real.
 
 Enable the pre-commit hook once:
 

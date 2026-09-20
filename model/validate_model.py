@@ -9,9 +9,9 @@ Run:       python3 model/validate_model.py
 Exit code: 0 if valid, 1 if any ERROR was found.
 
 Levels are discovered, not hard-coded: any directory under model/ holding a file
-named *_requirements.csv is treated as a decomposition level. Risks and
-interfaces are discovered the same way, from *_risks.csv and *_interfaces.csv.
-Adding model/system/ with any of them in it needs no change here.
+named *_requirements.csv is treated as a decomposition level. Risks, interfaces
+and tests are discovered the same way, from *_risks.csv, *_interfaces.csv and
+*_tests.csv. Adding model/system/ with any of them in it needs no change here.
 """
 
 import csv
@@ -37,10 +37,17 @@ FUNCTION_ID = re.compile(rf"^FUN-{PATH_CODES}-\d{{2}}$")
 REQUIREMENT_ID = re.compile(rf"^REQ-{PATH_CODES}-\d{{3}}$")
 RISK_ID = re.compile(rf"^RSK-{PATH_CODES}-\d{{3}}$")
 INTERFACE_ID = re.compile(rf"^INT-{PATH_CODES}-\d{{2}}$")
+TEST_ID = re.compile(rf"^TST-{PATH_CODES}-\d{{3}}$")
 CONSTRAINT_SOURCE = re.compile(r"^Constraint: .+$")    # Constraint: Amit
 
 VERIFICATION = {"Inspection", "Analysis", "Demonstration", "Test"}
 STATUS = {"draft", "agreed", "implemented", "verified", "dropped"}
+
+# A risk does not travel the road that a requirement travels. Its life ends when
+# its mitigation is stated in requirements, because the requirements and the TST-
+# rows carry the verification from there (MET-020). The vocabulary differs; the
+# mechanism does not.
+RISK_STATUS = {"open", "mitigated", "dropped"}
 
 # A decision is never deleted, so it needs a way to say it no longer governs.
 # superseded: replaced by a fuller statement, the substance unchanged.
@@ -61,7 +68,7 @@ TYPE_BY_SOURCE = {
 
 # Anything shaped like an identifier, wherever it appears in prose.
 REFERENCE = re.compile(
-    rf"\b(?:FUN|REQ|RSK|INT)-{PATH_CODES}-\d{{2,3}}\b|\b(?:OPN|DEC|MET)-\d{{3}}\b")
+    rf"\b(?:FUN|REQ|RSK|INT|TST)-{PATH_CODES}-\d{{2,3}}\b|\b(?:OPN|DEC|MET)-\d{{3}}\b")
 
 
 def compartment_of(identifier):
@@ -82,12 +89,13 @@ def main():
     # -- Discover the decomposition levels ------------------------------------
     # A risk is a failure mode of one compartment, so it lives with that
     # compartment rather than in a register spanning every level (MET-008).
-    functions, requirements, risks, interfaces = [], [], [], []
+    functions, requirements, risks, interfaces, tests = [], [], [], [], []
     by_directory = {}          # directory -> set of compartments found in it
     for kind, bucket in (("functions", functions),
                          ("requirements", requirements),
                          ("risks", risks),
-                         ("interfaces", interfaces)):
+                         ("interfaces", interfaces),
+                         ("tests", tests)):
         for path in sorted(glob.glob(
                 os.path.join(MODEL, "**", f"*_{kind}.csv"), recursive=True)):
             rows = load(path)
@@ -123,6 +131,12 @@ def main():
         if kid in risk_ids:
             errors.append(f"{kid}: duplicate risk identifier")
         risk_ids.add(kid)
+        # Every other kind of row had its vocabulary checked. This one did not,
+        # and all fifty-four risks were carrying a word that no rule declared.
+        if (row.get("status") or "").strip() not in RISK_STATUS:
+            errors.append(
+                f"{kid}: status '{row.get('status')}' not allowed "
+                f"(expected: {', '.join(sorted(RISK_STATUS))})")
 
     question_ids = {q["id"] for q in questions}
     decision_ids = {d["id"] for d in decisions}
@@ -198,6 +212,8 @@ def main():
         elif " shall " not in text and not text.startswith("No "):
             warnings.append(f"{rid}: text does not read as a 'shall' statement")
 
+    requirement_status = {row["id"]: row["status"].strip() for row in requirements}
+
     # -- A function below product level names the function it decomposes ------
     for row in functions:
         parent = (row.get("parent_id") or "").strip()
@@ -220,11 +236,17 @@ def main():
             errors.append(f"{row['id']}: closed, but closed_by is empty")
         if closed_by and status != "closed":
             errors.append(f"{row['id']}: closed_by is set, but status is '{status}'")
-        if closed_by and closed_by not in decision_ids | requirement_ids:
-            errors.append(
-                f"{row['id']}: closed_by names {closed_by}, which is not a decision "
-                f"or a requirement that exists"
-            )
+        # A question can be answered in more than one place: OPN-050 needed one
+        # requirement in each of four declaration holders. The column held one
+        # identifier, so the other three lived in the question text where nothing
+        # checked them. It reads like the mitigation column of a risk now
+        # (MET-019): several identifiers, each of which must resolve.
+        for named in re.split(r"[,\s]+", closed_by):
+            if named and named not in decision_ids | requirement_ids:
+                errors.append(
+                    f"{row['id']}: closed_by names {named}, which is not a decision "
+                    f"or a requirement that exists"
+                )
 
     # -- Requirements below product level must name a parent that exists ------
     # Product requirements have no parent within the model; their parent is the
@@ -326,11 +348,24 @@ def main():
 
     for row in risks:
         mitigation = row["mitigation"].strip()
+        status = (row.get("status") or "").strip()
         if not mitigation:
             errors.append(f"{row['id']}: no mitigation recorded")
-        for ref in re.findall(r"REQ-[A-Z]{2}-\d{3}", mitigation):
+        named = re.findall(rf"REQ-{PATH_CODES}-\d{{3}}", mitigation)
+        for ref in named:
             if ref not in requirement_ids:
                 errors.append(f"{row['id']}: mitigation names {ref}, which does not exist")
+        # A risk is mitigated when its mitigation is stated in requirements that
+        # stand (MET-020). TBD is the honest form while it is not.
+        live = [r for r in named if requirement_status.get(r) != "dropped"]
+        if status == "mitigated" and not live:
+            errors.append(
+                f"{row['id']}: status is 'mitigated', but the mitigation names no "
+                f"requirement that stands")
+        if status == "open" and live:
+            errors.append(
+                f"{row['id']}: status is 'open', but the mitigation names "
+                f"{', '.join(live)}")
 
     # -- Interfaces: one thing that crosses, named once by both sides ---------
     # A contract stated on both sides (DEC-014) drifts, and it drifts in the
@@ -341,7 +376,6 @@ def main():
     # one time and holds the requirement on each side of it, so the two sides
     # cannot be written apart without the row showing it (MET-018).
     path_of = {compartment: path for path, compartment in declared.items()}
-    requirement_status = {row["id"]: row["status"].strip() for row in requirements}
     registered = set()
 
     interface_ids = set()
@@ -407,17 +441,61 @@ def main():
             errors.append(
                 f"{row['id']}: typed interface, but no interfaces file names it")
 
+    # -- Tests: a criterion names the requirement it verifies -----------------
+    # A TST- row is where the acceptance criterion lives (MET-004, rule 5). The
+    # file was written and not read, so a row naming a requirement that does not
+    # exist passed silently. Whether a requirement with no TST- row is reported
+    # is BLD-OPN-008, and is not decided here.
+    test_ids = set()
+    for row in tests:
+        tid = row["id"]
+        if not TEST_ID.match(tid):
+            errors.append(f"{tid}: malformed test identifier (expected TST-PL-nnn)")
+        if tid in test_ids:
+            errors.append(f"{tid}: duplicate test identifier")
+        test_ids.add(tid)
+
+        status = (row.get("status") or "").strip()
+        if status not in STATUS:
+            errors.append(f"{tid}: status '{status}' not allowed")
+        if not (row.get("criterion") or "").strip():
+            errors.append(f"{tid}: no criterion recorded")
+
+        # A criterion verifies one requirement, and it is verified where that
+        # requirement is held. A test in another compartment is the same level
+        # error as a safety requirement filed away from its risk.
+        verified = (row.get("requirement_id") or "").strip()
+        if verified not in requirement_ids:
+            errors.append(
+                f"{tid}: requirement_id '{verified}' is not a requirement that exists")
+        else:
+            if compartment_of(verified) != compartment_of(tid):
+                errors.append(
+                    f"{tid}: verifies {verified}, a requirement in compartment "
+                    f"{compartment_of(verified)}, not {compartment_of(tid)}")
+            if requirement_status[verified] == "dropped" and status != "dropped":
+                errors.append(
+                    f"{tid}: verifies {verified}, which is dropped, while the test "
+                    f"is not")
+            # A product requirement carries no acceptance criterion (MET-004).
+            if compartment_of(verified) == "PL":
+                errors.append(
+                    f"{tid}: verifies {verified}, a product requirement, which "
+                    f"carries no acceptance criterion (MET-004)")
+
     # -- Every cross-reference anywhere must resolve --------------------------
     # Identifiers shift when a set is consolidated or split. A reference left
     # behind in a decision, a diagram or the schema then points at nothing, and
     # nobody notices. This has happened twice; hence the check.
     known = (function_ids | requirement_ids | risk_ids | question_ids
-             | decision_ids | interface_ids)
+             | decision_ids | interface_ids | test_ids)
     targets = sorted(glob.glob(os.path.join(REGISTERS, "*.csv")))
     targets += sorted(glob.glob(
         os.path.join(MODEL, "**", "*_risks.csv"), recursive=True))
     targets += sorted(glob.glob(
         os.path.join(MODEL, "**", "*_interfaces.csv"), recursive=True))
+    targets += sorted(glob.glob(
+        os.path.join(MODEL, "**", "*_tests.csv"), recursive=True))
     targets.append(os.path.join(MODEL, "model_conventions.md"))
     targets.append(os.path.join(REPO, "README.md"))
     targets.append(os.path.join(REPO, "CLAUDE.md"))
@@ -446,6 +524,7 @@ def main():
     print()
     print(f"{len(functions)} functions, {len(requirements)} requirements, "
           f"{len(risks)} risks, {len(interfaces)} interfaces, "
+          f"{len(tests)} tests, "
           f"{len(decisions)} decisions, "
           f"{len(questions)} open questions, "
           f"{len(errors)} errors, {len(warnings)} warnings.")
