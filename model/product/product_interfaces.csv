@@ -1,22 +1,28 @@
 id,from,to,item,supplied_by,accepted_by,status
-INT-PL-01,IN,ST,the origin of an item,REQ-IN-006,REQ-ST-002,draft
-INT-PL-02,IN,ST,the time at which the platform received an item,REQ-IN-022,REQ-ST-003,draft
+INT-PL-01,IN,ST,the source of an item,REQ-IN-006,REQ-ST-002,draft
+INT-PL-02,IN,ST,the time at which the platform received an item,REQ-IN-022,REQ-ST-003,dropped
 INT-PL-03,IN,ST,the time of an observation,REQ-IN-018,REQ-ST-033,draft
 INT-PL-04,IN,ST,the identifier of an item,REQ-IN-007,REQ-ST-008,draft
 INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
 INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
-INT-PL-08,ST,TBD,the origin and the times of a value that is served,REQ-ST-014,TBD,draft
-INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,TBD,draft
+INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,TBD,draft
+INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045,draft
 INT-PL-10,WC,IA,a unit of work that waits for a person,TBD,TBD,draft
 INT-PL-11,TBD,WC,a unit of work that a system raises,TBD,TBD,draft
 INT-PL-12,AD,WC,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-WC-012,draft
 INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,TBD,draft
-INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,TBD,draft
+INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,REQ-ST-017 REQ-ST-018 REQ-ST-032 REQ-ST-034 REQ-ST-043,draft
 INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,TBD,draft
-INT-PL-16,AU,AD,the declared classes of action that need the authorization of the user,REQ-AU-006,TBD,draft
-INT-PL-17,TBD,AU,"an action that a caller prepared, and the object of that action, for classification",TBD,REQ-AU-005,draft
-INT-PL-18,AU,TBD,whether an action that a caller prepared is in a declared class,REQ-AU-004,TBD,draft
+INT-PL-16,AU,AD,"the declared classes of action that need the authorization of the user (dropped: DEC-069, nothing crosses to Agent Definition)",REQ-AU-006,TBD,dropped
+INT-PL-17,AC,AU,"an action that a caller prepared, and the object of that action, for classification",TBD,REQ-AU-005,draft
+INT-PL-18,AU,AC,whether an action that a caller prepared is in a declared class,REQ-AU-004,TBD,draft
 INT-PL-19,WC,AU,"the affirmative answer of the user to a request that states the declaration, the change or the removal of a class",TBD,REQ-AU-003,draft
 INT-PL-20,AD,AU,the position of a caller and what it admits,REQ-AD-014,REQ-AU-012,draft
 INT-PL-21,WC,AD,the declared resources and the owner of each,REQ-WC-039,REQ-AD-040,draft
+INT-PL-22,AU,AC,the declared classes of action that need the authorization of the user,REQ-AU-006,TBD,draft
+INT-PL-23,IN,ST,the removal of the definition of an external source,REQ-IN-029,REQ-ST-051,draft
+INT-PL-24,ST,AC,the source of a value that is served,REQ-ST-014,TBD,draft
+INT-PL-25,ST,AC,the times of a value that is served,REQ-ST-014,TBD,draft
+INT-PL-26,AD,ST,whether any declared position names a given declaration,REQ-AD-053,REQ-ST-050,draft
+INT-PL-27,AD,IN,whether any declared position names a given declaration,REQ-AD-053,REQ-IN-027,draft

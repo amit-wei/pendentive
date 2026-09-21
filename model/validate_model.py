@@ -47,7 +47,12 @@ STATUS = {"draft", "agreed", "implemented", "verified", "dropped"}
 # its mitigation is stated in requirements, because the requirements and the TST-
 # rows carry the verification from there (MET-020). The vocabulary differs; the
 # mechanism does not.
-RISK_STATUS = {"open", "mitigated", "dropped"}
+RISK_STATUS = {"open", "mitigated", "accepted", "dropped"}
+
+# A risk whose answer is not a requirement -- configuration, or a judgement
+# that DEC-030 keeps out of the platform -- can never reach "mitigated". Left
+# "open" it reads as unfinished FMEA when it is decided, so the list of open
+# risks stops meaning the list of unfinished work (MET-023).
 
 # A decision is never deleted, so it needs a way to say it no longer governs.
 # superseded: replaced by a fuller statement, the substance unchanged.
@@ -366,6 +371,18 @@ def main():
             errors.append(
                 f"{row['id']}: status is 'open', but the mitigation names "
                 f"{', '.join(live)}")
+        # "accepted" is the deliberate form: a decision states the answer and no
+        # requirement carries it. Naming a requirement here means the risk is
+        # mitigated and the status is the mistake (MET-023).
+        if status == "accepted":
+            if live:
+                errors.append(
+                    f"{row['id']}: status is 'accepted', but the mitigation names "
+                    f"{', '.join(live)}")
+            if not re.findall(r"DEC-\d{3}", mitigation):
+                errors.append(
+                    f"{row['id']}: status is 'accepted', but the mitigation names no "
+                    f"decision that states the answer")
 
     # -- Interfaces: one thing that crosses, named once by both sides ---------
     # A contract stated on both sides (DEC-014) drifts, and it drifts in the
@@ -414,21 +431,28 @@ def main():
         # accepts. A requirement named on the wrong side is the mistake here,
         # and it is invisible to a reader of either file alone.
         for column, side_column in (("supplied_by", "from"), ("accepted_by", "to")):
-            named = row[column].strip()
+            cell = row[column].strip()
             side = row[side_column].strip()
-            if named == "TBD":
+            if cell == "TBD":
                 continue
-            if named not in requirement_ids:
-                errors.append(f"{iid}: {column} names {named}, which does not exist")
-                continue
-            registered.add(named)
-            if side != "TBD" and compartment_of(named) != side:
-                errors.append(
-                    f"{iid}: {column} names {named}, which is not in {side}")
-            if requirement_status[named] == "dropped" and status != "dropped":
-                errors.append(
-                    f"{iid}: {column} names {named}, which is dropped, while the "
-                    f"interface is not")
+            # A side can be more than one requirement (MET-021). OPN-057 and
+            # OPN-058 each found four requirements consuming one contract while
+            # the column held one identifier, so three of the four were invisible
+            # to this check. Read the same way as closed_by and as a mitigation.
+            for named in re.split(r"[,\s]+", cell):
+                if not named:
+                    continue
+                if named not in requirement_ids:
+                    errors.append(f"{iid}: {column} names {named}, which does not exist")
+                    continue
+                registered.add(named)
+                if side != "TBD" and compartment_of(named) != side:
+                    errors.append(
+                        f"{iid}: {column} names {named}, which is not in {side}")
+                if requirement_status[named] == "dropped" and status != "dropped":
+                    errors.append(
+                        f"{iid}: {column} names {named}, which is dropped, while the "
+                        f"interface is not")
 
     # An interface requirement that no row names is one side of a contract whose
     # other side nobody wrote. This is the check that stops the file rotting.
@@ -514,6 +538,50 @@ def main():
                             f"{os.path.relpath(path, REPO)}:{lineno}: references "
                             f"{ref}, which does not exist"
                         )
+
+    # -- A live row may not rest on a row that no longer stands ---------------
+    # The check above asks whether a reference resolves. It does not ask whether
+    # it resolves to something that still stands, and three supersessions in one
+    # session each left live rows arguing from the decision they replaced. The
+    # reasoning reads as current, which is worse than a reference to nothing.
+    #
+    # Two ways for a citation to be legitimate. A superseded decision may be
+    # named where the same text also names its successor, which is how a row
+    # says the substance moved. A dropped requirement or function may be named
+    # where the text says it is gone, in the words "dropped" or "deleted".
+    retired_decision = {d["id"]: (d.get("superseded_by") or "").strip()
+                        for d in decisions if (d.get("status") or "").strip() in RETIRED}
+    gone = {r["id"] for r in requirements + functions
+            if (r.get("status") or "").strip() == "dropped"}
+
+    CITED_IN = {
+        "requirement": ("rationale",),
+        "function":    ("definition", "rationale"),
+        "risk":        ("failure_mode", "cause", "effect", "detection", "mitigation"),
+        "decision":    ("decision", "reason"),
+    }
+    for kind, group in (("requirement", requirements), ("function", functions),
+                        ("risk", risks), ("decision", decisions)):
+        dead_status = {"dropped"} if kind == "risk" else {"dropped"} | RETIRED
+        for row in group:
+            # A row that no longer stands is history. Its text is left as written.
+            if (row.get("status") or "").strip() in dead_status:
+                continue
+            text = " ".join((row.get(f) or "") for f in CITED_IN[kind])
+            acknowledged = "dropped" in text or "deleted" in text
+            for ref in sorted(set(REFERENCE.findall(text))):
+                if ref == row["id"]:
+                    continue
+                if ref in retired_decision:
+                    successor = retired_decision[ref]
+                    if successor and (successor in text or successor == row["id"]):
+                        continue
+                    errors.append(
+                        f"{row['id']}: rests on {ref}, which is retired, without naming "
+                        f"{successor or 'a successor'}")
+                elif ref in gone and not acknowledged:
+                    errors.append(
+                        f"{row['id']}: rests on {ref}, which is dropped, without saying so")
 
     # -- Report ---------------------------------------------------------------
     for w in warnings:

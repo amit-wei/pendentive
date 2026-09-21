@@ -84,10 +84,11 @@ An interface is held by the compartment that holds both of its sides
 (`MET-018`). The product level holds the interfaces between systems, in
 `product_interfaces.csv`. A system holds the interfaces between its subsystems.
 
-One row names **one thing that crosses**, not one interface. The row holds the
-requirement that states what the supplier gives and the requirement that states
-what the receiver accepts. It does not hold the content of the contract, which
-stays in the requirement text.
+One row names **one thing that crosses**, not one interface. The row holds what
+states the supply on one side and what states the acceptance on the other. Each
+side holds one or more requirements, separated by spaces or by commas, and each
+one must exist in the compartment that the row names for that side (`MET-021`).
+It does not hold the content of the contract, which stays in the requirement text.
 
 A requirement of type `interface` must appear in a row. A side that is not
 decomposed yet is written as `TBD`.
@@ -130,7 +131,8 @@ link is in the `mitigation` column of the risk, not in `generated_from`.
 `RPN`, `mitigation`, `status`.
 
 **Interfaces:** `id`, `from`, `to`, `item`, `supplied_by`, `accepted_by`,
-`status`.
+`status`. `supplied_by` and `accepted_by` each hold one or more requirements
+(`MET-021`), read the same way as `closed_by` and as the `mitigation` of a risk.
 
 **Tests:** `id`, `requirement_id`, `criterion`, `status`. One row verifies one
 requirement, and it is held in the compartment of that requirement. A product
@@ -148,17 +150,21 @@ same way as the `mitigation` column of a risk.
 four methods that `GOALS.md` uses, so the method is the same at every level.
 
 Every row carries a `status`. The vocabulary is per kind of row and the validator
-checks each one (`MET-020`).
+checks each one (`MET-023`, which restates `MET-020`).
 
 | Kind | `status` |
 |---|---|
 | requirement, function, interface, test | `draft`, `agreed`, `implemented`, `verified`, `dropped` |
-| risk | `open`, `mitigated`, `dropped` |
+| risk | `open`, `mitigated`, `accepted`, `dropped` |
 | decision | `proposed`, `agreed`, `superseded`, `reversed` |
 
 A risk is `mitigated` when its mitigation names a requirement that stands. The
 verification of that requirement is the status of the requirement and is not
 repeated on the risk.
+
+A risk is `accepted` when its failure mode stands and the answer to it is not a
+requirement (`MET-023`). Its mitigation then names the decision that states the
+answer, and names no requirement. `open` means nobody has answered it.
 
 Nothing leaves `draft` until the decomposition is finished and a v1 scope exists
 (`BLD-OPN-009`). At that point every row that v1 touches becomes `agreed`, which is
@@ -178,8 +184,10 @@ what `agreed` means: in scope and red-lined, not merely written.
 6. A requirement is verified only after all of its children are verified.
 7. A safety requirement sits in the compartment of the risk that it answers.
 8. A risk is mitigated by requirements in its compartment or below it, never above.
-9. Nothing is deleted. A requirement becomes `dropped`. A decision becomes
-   `superseded` or `reversed` and names what replaced it.
+9. A row that is `draft` and that no commit has carried may be deleted
+   (`MET-024`). Once a commit carries a row, nothing is deleted: a requirement
+   becomes `dropped`, and a decision becomes `superseded` or `reversed` and names
+   what replaced it. An identifier is never reused.
 10. A question that you cannot answer becomes an `OPN-` row.
 11. Vague is permitted. Unverifiable is not.
 12. Text uses Simplified Technical English (`MET-013`).

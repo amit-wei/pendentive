@@ -67,12 +67,14 @@ Verifies that identifiers are well formed and unique, that every requirement has
 exactly one origin which resolves, that its type matches that origin, that every
 child names a parent that exists, that controlled vocabularies hold, that every risk
 names a mitigation and an RPN equal to the product of its factors, that a safety
-requirement sits at the level of the risk it answers, that each side of an
-interface is a requirement in the compartment that the row names and that no
+requirement sits at the level of the risk it answers, that each identifier on a
+side of an interface is a requirement in the compartment that the row names and that no
 interface requirement is left without a row, that every acceptance criterion names
 one requirement that exists in its own compartment and that no criterion is written
-against a product requirement, and that every cross-reference in the registers, the
-schema, the README and the documentation points at something real.
+against a product requirement, that every cross-reference in the registers, the
+schema, the README and the documentation points at something real, and that no row
+which stands rests on a decision that was superseded or a requirement that was
+dropped without naming the successor or saying that it is gone.
 
 Enable the pre-commit hook once:
 

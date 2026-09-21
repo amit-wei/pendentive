@@ -11,7 +11,7 @@ TST-AD-009,REQ-AD-007,"The system gives what states an agent after the platform 
 TST-AD-010,REQ-AD-008,"The system gives, for one agent, the identity of that agent and the identity of the position that the agent holds.",draft
 TST-AD-011,REQ-AD-009,"After two changes to an agent, the system gives both earlier configurations, each with the time of its change and the caller that made it.",draft
 TST-AD-012,REQ-AD-010,"After an agent is retired, the system gives what that agent was.",draft
-TST-AD-013,REQ-AD-011,"The system accepts a declaration of a position that states a part of each body, a set of acts, and the positions that its holder may confer.",draft
+TST-AD-013,REQ-AD-011,"The system accepts a declaration of a position that states a part of each body, a set of acts, the positions that its holder may confer, and the positions whose holders it may retire.",draft
 TST-AD-014,REQ-AD-014,"The system gives, for one agent, the position of that agent and the part of each body, the acts and the positions to confer that the position admits.",draft
 TST-AD-015,REQ-AD-015,TBD,draft
 TST-AD-016,REQ-AD-016,The system gives the place of each agent in the declared hierarchy.,draft
