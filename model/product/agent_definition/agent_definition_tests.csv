@@ -19,8 +19,8 @@ TST-AD-017,REQ-AD-017,"The system refuses a change of place of an agent from a c
 TST-AD-018,REQ-AD-018,The system refuses a change to what states an agent from a caller whose position does not admit that act.,draft
 TST-AD-019,REQ-AD-019,The system refuses the declaration of a position from a caller whose position does not admit that act.,draft
 TST-AD-020,REQ-AD-020,The system refuses the conferral of a position that the position of the caller does not state that it may confer.,draft
-TST-AD-021,REQ-AD-021,An agent that asks for the rules for work with the platform receives them.,draft
-TST-AD-022,REQ-AD-023,Two agents that ask for the rules receive the same rules.,draft
+TST-AD-021,REQ-AD-021,An agent that asks for the rules for work with the platform receives them.,dropped
+TST-AD-022,REQ-AD-023,Two agents that ask for the rules receive the same rules.,dropped
 TST-AD-023,REQ-AD-024,"The system gives the set of agents that it holds, with the position that each agent holds.",draft
 TST-AD-024,REQ-AD-025,The system gives to a caller no agent that the position of that caller does not admit.,draft
 TST-AD-025,REQ-AD-026,"A runtime outside the platform uses an agent from the form that the system gives, while the platform does not run.",draft
@@ -38,3 +38,6 @@ TST-AD-036,REQ-AD-039,The system accepts the declaration of a position from an a
 TST-AD-037,REQ-AD-039,The system refuses the declaration of a position from a caller that is not an agent.,draft
 TST-AD-038,REQ-AD-039,The system accepts a change to a position from an agent.,draft
 TST-AD-039,REQ-AD-039,The system refuses a change to a position from a caller that is not an agent.,draft
+TST-AD-040,REQ-AD-054,An agent whose position admits a given act asks for the rules. It receives the rule for that act.,draft
+TST-AD-041,REQ-AD-055,Two agents whose positions admit different acts ask for the rules. Each receives every rule that bounds every caller.,draft
+TST-AD-042,REQ-AD-056,An agent whose position does not admit a given act asks for the rules. It does not receive the rule for that act.,draft

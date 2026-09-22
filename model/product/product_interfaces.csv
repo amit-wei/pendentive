@@ -8,12 +8,12 @@ INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-00
 INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
 INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,TBD,draft
 INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045,draft
-INT-PL-10,WC,IA,a unit of work that waits for a person,TBD,TBD,draft
+INT-PL-10,WC,IA,a unit of work that waits for a person,TBD,REQ-IA-011 REQ-IA-014,draft
 INT-PL-11,TBD,WC,a unit of work that a system raises,TBD,TBD,draft
 INT-PL-12,AD,WC,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-WC-012,draft
 INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,TBD,draft
 INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,REQ-ST-017 REQ-ST-018 REQ-ST-032 REQ-ST-034 REQ-ST-043,draft
-INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,TBD,draft
+INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,REQ-IA-002,draft
 INT-PL-16,AU,AD,"the declared classes of action that need the authorization of the user (dropped: DEC-069, nothing crosses to Agent Definition)",REQ-AU-006,TBD,dropped
 INT-PL-17,AC,AU,"an action that a caller prepared, and the object of that action, for classification",TBD,REQ-AU-005,draft
 INT-PL-18,AU,AC,whether an action that a caller prepared is in a declared class,REQ-AU-004,TBD,draft
@@ -26,3 +26,9 @@ INT-PL-24,ST,AC,the source of a value that is served,REQ-ST-014,TBD,draft
 INT-PL-25,ST,AC,the times of a value that is served,REQ-ST-014,TBD,draft
 INT-PL-26,AD,ST,whether any declared position names a given declaration,REQ-AD-053,REQ-ST-050,draft
 INT-PL-27,AD,IN,whether any declared position names a given declaration,REQ-AD-053,REQ-IN-027,draft
+INT-PL-28,IA,ST,the source of an exchange,REQ-IA-026,REQ-ST-002,draft
+INT-PL-29,IA,WC,the answer of the user to a unit of work that waits for the user,REQ-IA-013,TBD,draft
+INT-PL-30,IA,WC,"whether the user opened, answered or acknowledged a message",REQ-IA-016,TBD,draft
+INT-PL-31,IA,ST,the kind of an exchange,REQ-IA-027,REQ-ST-030,draft
+INT-PL-32,IA,ST,the agent of an exchange,REQ-IA-028,TBD,draft
+INT-PL-33,IA,WC,whether the user opened a unit of work that waits for the user,REQ-IA-024,TBD,draft
