@@ -8,7 +8,7 @@ A client reaches the platform through this system, including a client that anoth
 person wrote (`DEC-080`). The user chooses the agent of an exchange in text
 (`DEC-088`). Every spoken exchange is with one declared agent (`DEC-089`), which
 Agent Definition defines like any other (`DEC-083`). The agent that puts a
-question may put it in its own words (`DEC-086`). An answer of the user reaches this system
+question may put it in its own words (`DEC-104`). An answer of the user reaches this system
 from the user and not through an agent, which is what `REQ-PL-030` needs. Each
 exchange is written to life state (`DEC-024`); what an agent draws from it afterwards
 is the work of that agent.
