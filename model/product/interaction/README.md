@@ -7,8 +7,8 @@ From `FUN-PL-06`, `FUN-PL-05` and `FUN-PL-07`.
 A client reaches the platform through this system, including a client that another
 person wrote (`DEC-080`). The user chooses the agent of an exchange in text
 (`DEC-088`). Every spoken exchange is with one declared agent (`DEC-089`), which
-Agent Definition defines like any other (`DEC-083`), and which may put a question to
-the user in its own words (`DEC-086`). An answer of the user reaches this system
+Agent Definition defines like any other (`DEC-083`). The agent that puts a
+question may put it in its own words (`DEC-086`). An answer of the user reaches this system
 from the user and not through an agent, which is what `REQ-PL-030` needs. Each
 exchange is written to life state (`DEC-024`); what an agent draws from it afterwards
 is the work of that agent.
@@ -24,6 +24,9 @@ it as `TBD`. `REQ-IA-005` is the part of `OPN-061` that this system holds.
 the work that draws from an exchange. `OPN-069` asks who declares the kind of an
 exchange.
 
-The side of Work and Coordination is not written on `INT-PL-10` (`OPN-063`),
-`INT-PL-29` (`OPN-064`), `INT-PL-30` (`OPN-065`) or `INT-PL-33` (`OPN-073`).
-`OPN-071` asks what gives this system the declared agent for speech.
+Work and Coordination accepts `INT-PL-29`, `INT-PL-30` and `INT-PL-33` and supplies
+`INT-PL-10`. It gives this system the refusal of an answer to a unit that closed
+(`INT-PL-35`), and what the user is then shown is `OPN-077`. A question for the user
+is put by the agent whose position is flagged for it (`DEC-096`), and whether that is
+the agent for speech is `OPN-071`. What a confirmation shows for a step that an
+agent drives is `OPN-078`.
