@@ -25,3 +25,14 @@ model. They do not yet cover every requirement: the validator does not report a
 requirement with no row (`BLD-OPN-008`). `REQ-AD-015` and `REQ-AD-034` carry a `TBD` by design.
 `REQ-AD-001` does not, and the criterion that it cannot produce is the defect.
 `REQ-AD-039` has two acts and two outcomes, so it carries four rows.
+
+`DEC-113` gates one act here: a change that widens a declared position
+(`REQ-AD-059`). To declare a position and to confer one need no answer, because a
+holder confers only the positions that its own position names (`DEC-039`), so a new
+position reaches nobody until a position is widened to name it. `RSK-AD-011` accepts
+agents and positions that no work needs. `RSK-AD-012` is the widening, mitigated.
+A call of a caller reaches this system only from Actuation (`REQ-AD-057`).
+A released gated unit reaches this system for a widening (`REQ-AD-061` refuses it by
+the position of its raiser). `REQ-AD-062` refuses the removal of a position that
+another position names, and `REQ-AD-063` refuses a conferral on the caller itself, so
+neither is a way around the gate.

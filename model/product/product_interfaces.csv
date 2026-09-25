@@ -17,7 +17,7 @@ INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,REQ-IA-
 INT-PL-16,AU,AD,"the declared classes of action that need the authorization of the user (dropped: DEC-069, nothing crosses to Agent Definition)",REQ-AU-006,TBD,dropped
 INT-PL-17,AC,AU,"an act that a caller called, with its arguments, for classification",REQ-AC-013,REQ-AU-005,draft
 INT-PL-18,AU,AC,whether an act that a caller called is in a declared class,REQ-AU-004 REQ-AU-020,REQ-AC-014 REQ-AC-015,draft
-INT-PL-19,AC,AU,"a released gated unit that states the declaration, the change or the removal of a class, with the affirmative answer to it",REQ-AC-026,REQ-AU-003 REQ-AU-014,draft
+INT-PL-19,AC,AU,"a released gated unit that states the declaration, the change or the removal of a class, with the affirmative answer to it",REQ-AC-026,REQ-AU-003 REQ-AU-014,dropped
 INT-PL-20,AD,AU,the position of a caller and what it admits,REQ-AD-014,REQ-AU-012,draft
 INT-PL-21,WC,AD,the declared resources and the owner of each,REQ-WC-039,REQ-AD-040,draft
 INT-PL-22,AU,AC,the declared classes of action that need the authorization of the user,REQ-AU-006,REQ-AC-011,draft
@@ -36,21 +36,21 @@ INT-PL-34,AD,WC,the position that is flagged to put questions to the user,TBD,RE
 INT-PL-35,WC,IA,the refusal of an answer of the user to a unit of work that closed,REQ-WC-074,TBD,draft
 INT-PL-36,WC,AC,"a released gated unit, with the affirmative answer and the request that it answers",REQ-WC-058 REQ-WC-069,REQ-AC-017 REQ-AC-018,draft
 INT-PL-37,AC,WC,the result of a gated action,REQ-AC-020,REQ-WC-070,draft
-INT-PL-38,AU,AC,"the result of the declaration, the change or the removal of a class that a gated unit carried",TBD,REQ-AC-033,draft
+INT-PL-38,AU,AC,"the result of the declaration, the change or the removal of a class that a gated unit carried",TBD,REQ-AC-033,dropped
 INT-PL-39,AD,AC,the position of a caller and what it admits,REQ-AD-014,REQ-AC-006 REQ-AC-007 REQ-AC-008 REQ-AC-028,draft
 INT-PL-40,AD,AC,whether any declared position names a given declaration,REQ-AD-053,REQ-AC-003,draft
 INT-PL-41,AC,EX,"an act on the outside world, as a call to an external service",REQ-AC-019,TBD,draft
 INT-PL-42,EX,AC,the result of a call to an external service,TBD,REQ-AC-033,draft
 INT-PL-43,AC,SO,the record of an act on the outside world,REQ-AC-021 REQ-AC-023 REQ-AC-030,TBD,draft
-INT-PL-44,AC,ST,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,TBD,draft
-INT-PL-45,AC,WC,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,TBD,draft
-INT-PL-46,AC,AD,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,TBD,draft
-INT-PL-47,AC,IN,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,TBD,draft
-INT-PL-48,AC,AU,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,TBD,draft
+INT-PL-44,AC,ST,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-ST-052,draft
+INT-PL-45,AC,WC,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,REQ-WC-087,draft
+INT-PL-46,AC,AD,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-AD-057,draft
+INT-PL-47,AC,IN,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-IN-031,draft
+INT-PL-48,AC,AU,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-AU-024,draft
 INT-PL-49,SO,AC,the records of acts on the outside world,TBD,REQ-AC-024 REQ-AC-025,draft
-INT-PL-50,AU,AC,whether any declared class names a given act,REQ-AU-022,REQ-AC-035,draft
-INT-PL-51,ST,AC,the result of a call that Actuation carried,TBD,REQ-AC-033,draft
-INT-PL-52,WC,AC,the result of a call that Actuation carried,TBD,REQ-AC-033,draft
-INT-PL-53,AD,AC,the result of a call that Actuation carried,TBD,REQ-AC-033,draft
-INT-PL-54,IN,AC,the result of a call that Actuation carried,TBD,REQ-AC-033,draft
-INT-PL-55,AU,AC,the result of a call that Actuation carried,TBD,REQ-AC-033,draft
+INT-PL-50,AU,AC,whether any declared class names a given act on the outside world,REQ-AU-022,REQ-AC-035,draft
+INT-PL-51,ST,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-ST-053,REQ-AC-033,draft
+INT-PL-52,WC,AC,the result of a call that Actuation carried,REQ-WC-088,REQ-AC-033,draft
+INT-PL-53,AD,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AD-058,REQ-AC-033,draft
+INT-PL-54,IN,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-IN-032,REQ-AC-033,draft
+INT-PL-55,AU,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AU-025,REQ-AC-033,draft
