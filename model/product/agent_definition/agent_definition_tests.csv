@@ -38,6 +38,6 @@ TST-AD-036,REQ-AD-039,The system accepts the declaration of a position from an a
 TST-AD-037,REQ-AD-039,The system refuses the declaration of a position from a caller that is not an agent.,draft
 TST-AD-038,REQ-AD-039,The system accepts a change to a position from an agent.,draft
 TST-AD-039,REQ-AD-039,The system refuses a change to a position from a caller that is not an agent.,draft
-TST-AD-040,REQ-AD-054,An agent whose position admits a given act asks for the rules. It receives the rule for that act.,draft
+TST-AD-040,REQ-AD-054,An agent whose position admits a given act asks for the rules. It receives the rule for that act.,dropped
 TST-AD-041,REQ-AD-055,Two agents whose positions admit different acts ask for the rules. Each receives every rule that bounds every caller.,draft
-TST-AD-042,REQ-AD-056,An agent whose position does not admit a given act asks for the rules. It does not receive the rule for that act.,draft
+TST-AD-042,REQ-AD-056,An agent whose position does not admit a given act asks for the rules. It does not receive the rule for that act.,dropped

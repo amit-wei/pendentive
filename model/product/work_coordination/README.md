@@ -39,6 +39,6 @@ carries it to the holder of its act (`REQ-WC-069`). `OPN-048`, `OPN-063`,
 
 Still open here: `OPN-075`, the items of the contract for a unit, which
 `REQ-WC-064` holds as `TBD`. `OPN-076`, the kinds of event that no interface row
-carries yet. `INT-PL-34` waits on `OPN-071` in Agent Definition, and `INT-PL-35` on
-`OPN-077` in Interaction. `DEC-105` puts no gated step
+carries yet. `REQ-WC-089` refuses a message that states that the user is told when it closes,
+which ends the loop of `REQ-WC-065`. `DEC-105` puts no gated step
 inside a sequence that an agent drives.

@@ -13,8 +13,10 @@ system with the caller. The holder accepts it only from here, refuses and does i
 gives the result back (`REQ-PL-032`). To show only the acts that a position admits is
 not a refusal, so `REQ-AC-007` refuses separately. The acts of the other systems are
 fixed by their design. The acts on the outside world are declared (`DEC-103`), and
-the declaration states the external service and the form of the arguments, nothing
-more. Authorization judges an act with its arguments, not the act alone.
+the declaration states the external service and the form of the arguments. Each act
+is held with its rule, which states what the platform refuses when it is done, and its
+guidance, which states how to use it well (`DEC-117`, `DEC-118`). How they reach an
+agent is `OPN-090`. Authorization judges an act with its arguments, not the act alone.
 
 `DEC-104` has this system refuse an act in a declared class and tell the caller, and
 the caller raises the request and the gated unit. The act is done only when Work and

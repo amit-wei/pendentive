@@ -4,9 +4,10 @@ Holds what states an agent, and changes it under control.
 
 From `FUN-PL-10`, `FUN-PL-03`, `FUN-PL-06` and `FUN-PL-14`.
 
-`DEC-077` divides what states an agent into its parts. Each rule for work with the
-platform is stated once. Every agent is given the rules that bound every caller, and
-the rules for the acts that its position admits.
+`DEC-117` divides what states an agent into its parts. Each rule for work with the
+platform is stated once. Every agent is given the rules that bound every caller. The
+rule for an act, and the guidance for it, are held with the act in Actuation
+(`DEC-117`, `DEC-118`), and how they reach an agent is `OPN-090`.
 A position states what an agent admits (`DEC-019`, `DEC-029`). An identity states
 what an agent is for, at two levels (`DEC-038`). A model runs the agent (`DEC-065`).
 `MET-002` keeps the content of an identity outside this repository; the system holds
@@ -19,6 +20,11 @@ configuration. `REQ-AD-040` holds the refusal at declaration and `REQ-AD-041` at
 conferral. `INT-PL-21` brings the declared resources and their owners from Work and
 Coordination. `DEC-068` lets two agents hold one owning position, which closed
 `OPN-056`.
+
+`FUN-AD-10` gives two flagged positions: the one that receives a unit of work that
+names no agent, and the one that speaks to the user (`DEC-119`), which takes every
+spoken exchange and every question for the user. Each has one holder
+(`REQ-AD-066`, `REQ-AD-067`).
 
 `agent_definition_tests.csv` holds the first `TST-` rows written anywhere in the
 model. They do not yet cover every requirement: the validator does not report a

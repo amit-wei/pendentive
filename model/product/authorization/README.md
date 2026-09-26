@@ -11,7 +11,7 @@ which `AC` holds, so the holder is not `AC`. `DEC-112` moves the gate on a sourc
 into `IN`, and this system holds no class for it. `DEC-054` states this
 system's own gate as a requirement and not as an entry in the register, so the
 register does not classify the acts of the system that holds it. `DEC-058` states
-that the declared classes are a declaration and not a fifth body under `DEC-024`.
+that the declared classes are a declaration and not a fifth body under `DEC-120` (`DEC-058`).
 
 `DEC-048` makes an answer of the user permit the action that the request states and
 no other action. A permission that holds for later actions is a change to what a

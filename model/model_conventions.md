@@ -158,7 +158,9 @@ checks each one (`MET-023`, which restates `MET-020`).
 | risk | `open`, `mitigated`, `accepted`, `dropped` |
 | decision | `proposed`, `agreed`, `superseded`, `reversed` |
 
-A risk is `mitigated` when its mitigation names a requirement that stands. The
+A risk is `mitigated` when its mitigation names a requirement that stands, in its
+compartment or below it, and that answers its failure mode, not only its topic
+(`MET-025`). The
 verification of that requirement is the status of the requirement and is not
 repeated on the risk.
 

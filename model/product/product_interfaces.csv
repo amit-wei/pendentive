@@ -3,7 +3,7 @@ INT-PL-01,IN,ST,the source of an item,REQ-IN-006,REQ-ST-002,draft
 INT-PL-02,IN,ST,the time at which the platform received an item,REQ-IN-022,REQ-ST-003,dropped
 INT-PL-03,IN,ST,the time of an observation,REQ-IN-018,REQ-ST-033,draft
 INT-PL-04,IN,ST,the identifier of an item,REQ-IN-007,REQ-ST-008,draft
-INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030,draft
+INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030 REQ-ST-060,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
 INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
 INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,REQ-AC-011,draft
@@ -29,11 +29,11 @@ INT-PL-27,AD,IN,whether any declared position names a given declaration,REQ-AD-0
 INT-PL-28,IA,ST,the source of an exchange,REQ-IA-026,REQ-ST-002,draft
 INT-PL-29,IA,WC,the answer of the user to a unit of work that asks the user,REQ-IA-013,REQ-WC-049,draft
 INT-PL-30,IA,WC,that the user received a message,REQ-IA-016,REQ-WC-053,draft
-INT-PL-31,IA,ST,the kind of an exchange,REQ-IA-027,REQ-ST-030,draft
-INT-PL-32,IA,ST,the agent of an exchange,REQ-IA-028,TBD,draft
+INT-PL-31,IA,ST,the kind of an exchange,REQ-IA-032,REQ-ST-058,draft
+INT-PL-32,IA,ST,the agent of an exchange,REQ-IA-028,REQ-ST-060,draft
 INT-PL-33,IA,WC,whether the user opened a unit of work that asks the user,REQ-IA-024,REQ-WC-062,draft
-INT-PL-34,AD,WC,the position that is flagged to put questions to the user,TBD,REQ-WC-046,draft
-INT-PL-35,WC,IA,the refusal of an answer of the user to a unit of work that closed,REQ-WC-074,TBD,draft
+INT-PL-34,AD,WC,the position that speaks to the user,REQ-AD-064,REQ-WC-046,draft
+INT-PL-35,WC,IA,the refusal of an answer of the user to a unit of work that closed,REQ-WC-074,REQ-IA-030,draft
 INT-PL-36,WC,AC,"a released gated unit, with the affirmative answer and the request that it answers",REQ-WC-058 REQ-WC-069,REQ-AC-017 REQ-AC-018,draft
 INT-PL-37,AC,WC,the result of a gated action,REQ-AC-020,REQ-WC-070,draft
 INT-PL-38,AU,AC,"the result of the declaration, the change or the removal of a class that a gated unit carried",TBD,REQ-AC-033,dropped
@@ -54,3 +54,5 @@ INT-PL-52,WC,AC,the result of a call that Actuation carried,REQ-WC-088,REQ-AC-03
 INT-PL-53,AD,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AD-058,REQ-AC-033,draft
 INT-PL-54,IN,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-IN-032,REQ-AC-033,draft
 INT-PL-55,AU,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AU-025,REQ-AC-033,draft
+INT-PL-56,AD,IA,the position that speaks to the user,REQ-AD-064,REQ-IA-004,draft
+INT-PL-57,IA,ST,the kind of each exchange that is written,REQ-IA-027,REQ-ST-060 REQ-ST-061,draft
