@@ -5,13 +5,13 @@ INT-PL-03,IN,ST,the time of an observation,REQ-IN-018,REQ-ST-033,draft
 INT-PL-04,IN,ST,the identifier of an item,REQ-IN-007,REQ-ST-008,draft
 INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030 REQ-ST-060,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
-INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,TBD,draft
+INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,REQ-EX-031,draft
 INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,REQ-AC-011,draft
 INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045,draft
 INT-PL-10,WC,IA,a unit of work that asks the user,REQ-WC-047 REQ-WC-048,REQ-IA-011 REQ-IA-014 REQ-IA-018,draft
 INT-PL-11,TBD,WC,a unit of work that a system raises,TBD,TBD,draft
 INT-PL-12,AD,WC,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-WC-012,draft
-INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,TBD,draft
+INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,REQ-EX-031,draft
 INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,REQ-ST-017 REQ-ST-018 REQ-ST-032 REQ-ST-034 REQ-ST-043,draft
 INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,REQ-IA-002,draft
 INT-PL-16,AU,AD,"the declared classes of action that need the authorization of the user (dropped: DEC-069, nothing crosses to Agent Definition)",REQ-AU-006,TBD,dropped
@@ -39,8 +39,8 @@ INT-PL-37,AC,WC,the result of a gated action,REQ-AC-020,REQ-WC-070,draft
 INT-PL-38,AU,AC,"the result of the declaration, the change or the removal of a class that a gated unit carried",TBD,REQ-AC-033,dropped
 INT-PL-39,AD,AC,the position of a caller and what it admits,REQ-AD-014,REQ-AC-006 REQ-AC-007 REQ-AC-008 REQ-AC-028,draft
 INT-PL-40,AD,AC,whether any declared position names a given declaration,REQ-AD-053,REQ-AC-003,draft
-INT-PL-41,AC,EX,"an act on the outside world, as a call to an external service",REQ-AC-019,TBD,draft
-INT-PL-42,EX,AC,the result of a call to an external service,TBD,REQ-AC-033,draft
+INT-PL-41,AC,EX,"an act on the outside world, as a call to an external service",REQ-AC-019,REQ-EX-020,draft
+INT-PL-42,EX,AC,the result of a call to an external service,REQ-EX-021,REQ-AC-033,draft
 INT-PL-43,AC,SO,the record of an act on the outside world,REQ-AC-021 REQ-AC-023 REQ-AC-030,TBD,draft
 INT-PL-44,AC,ST,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-ST-052,draft
 INT-PL-45,AC,WC,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,REQ-WC-087,draft
@@ -56,3 +56,26 @@ INT-PL-54,IN,AC,"the result of a call, or of a released gated unit, that Actuati
 INT-PL-55,AU,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AU-025,REQ-AC-033,draft
 INT-PL-56,AD,IA,the position that speaks to the user,REQ-AD-064,REQ-IA-004,draft
 INT-PL-57,IA,ST,the kind of each exchange that is written,REQ-IA-027,REQ-ST-060 REQ-ST-061,draft
+INT-PL-58,AU,EX,the copy of the declared classes away from the host,REQ-AU-015,REQ-EX-031,draft
+INT-PL-59,EX,ST,a copy of life state for a restoration,REQ-EX-032,REQ-ST-020,draft
+INT-PL-60,EX,AD,a copy of what states an agent for a restoration,REQ-EX-032,REQ-AD-037,draft
+INT-PL-61,EX,AU,a copy of the declared classes for a restoration,REQ-EX-032,REQ-AU-016,draft
+INT-PL-62,IN,EX,"a call for an acquisition, which names the connection of the source",REQ-IN-036,REQ-EX-020,draft
+INT-PL-63,EX,IN,the result of a call for an acquisition,REQ-EX-021,REQ-IN-037,draft
+INT-PL-64,EX,IN,a delivery that a service sends without a request,REQ-EX-028,REQ-IN-004,draft
+INT-PL-65,IA,EX,a message that is delivered through an external service,REQ-IA-033,REQ-EX-020,draft
+INT-PL-66,EX,IA,the result of the delivery of a message,REQ-EX-021,REQ-IA-034,draft
+INT-PL-67,TBD,EX,a call to a model,TBD,REQ-EX-020,draft
+INT-PL-68,EX,TBD,the result of a call to a model,REQ-EX-021,TBD,draft
+INT-PL-69,AD,EX,the position that speaks to the user,REQ-AD-064,REQ-EX-023,draft
+INT-PL-70,AD,EX,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-EX-023,draft
+INT-PL-71,EX,WC,a unit of work that External Access raises,REQ-EX-018 REQ-EX-015 REQ-EX-025 REQ-EX-044,REQ-WC-001,draft
+INT-PL-72,EX,WC,that a declared connection that had no valid credential has one,REQ-EX-019,REQ-WC-051,draft
+INT-PL-73,EX,SO,the record of a call,REQ-EX-030,TBD,draft
+INT-PL-74,AC,EX,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-EX-009,draft
+INT-PL-75,EX,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-EX-010,REQ-AC-033,draft
+INT-PL-76,AD,EX,the position of a caller and what it admits,REQ-AD-014,REQ-EX-008 REQ-EX-011,draft
+INT-PL-77,IA,EX,a credential that the user gives,REQ-IA-035,REQ-EX-012,draft
+INT-PL-78,AC,EX,whether any declared act names a given connection,REQ-AC-040,REQ-EX-039,draft
+INT-PL-79,IN,EX,whether the definition of any source names a given connection,REQ-IN-039,REQ-EX-039,draft
+INT-PL-80,AD,EX,the cost of the use of each model,REQ-AD-044,REQ-EX-040,draft

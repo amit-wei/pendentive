@@ -13,8 +13,9 @@ origin of an item and `DEC-056` states that the platform states an origin and do
 not accept it from a caller, so a writer that states its own origin attributes its
 assertion to another writer. `OPN-037`: `DEC-044` gives an item a subject, and no requirement
 here states it, which `DEC-045` needs to separate the holders of one position.
-`OPN-040`: `REQ-ST-019` names a location away from the host, against `DEC-020`,
-which gives the carriage to `EX`, and against `MET-005`.
+`OPN-040` is closed by `DEC-128`: this system makes the copy and decides when, and
+`EX` carries it and keeps it. "Away from the host" in `REQ-ST-019` is a property and
+not a location.
 
 `DEC-113` gates the removal of data: `REQ-ST-055` refuses it until the user answers a
 request that states the selection, and `REQ-ST-057` refuses it by position.

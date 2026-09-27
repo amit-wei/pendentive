@@ -10,13 +10,13 @@ that an agent does, and not work for the user (`DEC-041`).
 `FUN-WC-07` is dropped and so are `REQ-WC-019`, `REQ-WC-020` and `REQ-WC-024`.
 `FUN-WC-08` holds the owner of each declared resource as well as the resource, and
 `REQ-WC-039` gives both to Agent Definition over `INT-PL-21`, where `REQ-AD-040`
-refuses a second position. `DEC-103` supersedes `DEC-070`, which superseded `DEC-060`, which superseded
+refuses a second position. `DEC-138` restates `DEC-103`, which superseded `DEC-070`, which superseded `DEC-060`, which superseded
 `DEC-033` and `DEC-036`.
 
 The severity did not vanish with the contention; it moved. `RSK-WC-002` is now the
 double use of a resource that nobody declared, which is reversible by construction
 and scores 36. `RSK-WC-011` is the resource that should have been declared and was
-not, which is not reversible. `DEC-103` accepts it at 30: work names the agent that does
+not, which is not reversible. `DEC-103`, restated by `DEC-138`, accepts it at 30: work names the agent that does
 it, and an act that needs the authorization of the user reaches the user twice first. `RSK-WC-010` inverts: a class-level declaration now gives one position
 every instance instead of matching units that do not collide.
 
