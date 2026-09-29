@@ -7,7 +7,7 @@ From `FUN-PL-10`, `FUN-PL-03`, `FUN-PL-06` and `FUN-PL-14`.
 `DEC-117` divides what states an agent into its parts. Each rule for work with the
 platform is stated once. Every agent is given the rules that bound every caller. The
 rule for an act, and the guidance for it, are held with the act in Actuation
-(`DEC-117`, `DEC-118`), and how they reach an agent is `OPN-090`.
+(`DEC-117`, `DEC-118`), and they are available to an agent with the act (`DEC-149`).
 A position states what an agent admits (`DEC-019`, `DEC-029`). An identity states
 what an agent is for, at two levels (`DEC-038`). A model runs the agent (`DEC-065`).
 `MET-002` keeps the content of an identity outside this repository; the system holds

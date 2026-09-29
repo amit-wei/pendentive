@@ -10,3 +10,4 @@ AU,product/authorization,Authorization
 AC,product/actuation,Actuation
 SO,product/self_observation,Self-Observation
 EX,product/external_access,External Access
+RN,product/agent_runtime,Agent Runtime

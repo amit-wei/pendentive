@@ -7,8 +7,8 @@ From `FUN-PL-08`, `FUN-PL-02`, `FUN-PL-15`, `FUN-PL-13`, `FUN-PL-11` and `FUN-PL
 
 It carries and does not decide. `DEC-123`, which restates `DEC-107`, keeps the check on
 an act with Actuation: this system checks no authority over a call that it carries, and
-carries a call only from Actuation, Ingestion, Interaction and the system that runs an
-agent, and a copy only from State Custody, Agent Definition and Authorization (`REQ-EX-020`, `REQ-EX-031`). Every part that opens a
+carries a call only from Actuation, Ingestion, Interaction and Agent Runtime
+(`DEC-140`), and a copy only from State Custody, Agent Definition and Authorization (`REQ-EX-020`, `REQ-EX-031`). Every part that opens a
 connection off the host or holds a credential is here (`DEC-124`). The model provider is
 an external service, and this system carries each call to it. Each operation that an
 agent can call is a declared act in Actuation. A tool that the provider runs for a call
@@ -36,4 +36,4 @@ reads. The holders decide when to make a copy, and this system carries it, encry
 and keeps it for a period (`DEC-128`). The user holds the key.
 
 Open against this system: `OPN-093`, `OPN-094` (whether the connections survive the loss
-of the host), and the other side of `OPN-091` (which system runs an agent). `RSK-EX-017` is open on `OPN-093`.
+of the host). `RSK-EX-017` is open on `OPN-093`.

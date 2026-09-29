@@ -1,0 +1,8 @@
+id,parent_id,name,definition,rationale,status
+FUN-RN-01,FUN-PL-16,Run Start,"Starts a run of the agent to which Work and Coordination sends a unit of work, when it sends the unit.","DEC-140. Work and Coordination chooses the agent without judgement (DEC-030), and this system runs it.",draft
+FUN-RN-02,FUN-PL-16,Exchange Carriage,"Accepts each turn of the user in an exchange from Interaction, runs the agent of that exchange for it, and gives Interaction the reply of the agent.",DEC-140 and DEC-142. The interactive runtime. A spoken turn has a time bound (REQ-IA-009) that a unit of work does not.,draft
+FUN-RN-03,FUN-PL-16,Context Assembly,"Gives the model of an agent what states that agent: its identity, the rules that bound every caller, and the acts that its identity names and its position admits.","DEC-117, DEC-144 and DEC-149. Agent Definition and Actuation hold the parts, and this system gives them to the model.",draft
+FUN-RN-04,FUN-PL-16,Model Carriage,"Makes each call to the model of the agent through External Access, and states the agent with each call.",DEC-124 and DEC-140.,draft
+FUN-RN-05,FUN-PL-16,Act Carriage,"Carries each call of the agent to an act to Actuation as that caller, gets an act from Actuation when the agent asks for it, and gives the agent each result.","DEC-111, DEC-140 and DEC-149. The model does not state the caller (REQ-AC-027).",draft
+FUN-RN-06,FUN-PL-16,Run Notice,"Accepts from Work and Coordination each note on the unit of a run that is running, and gives the note to the agent at its next turn.",DEC-148 and DEC-150.,draft
+FUN-RN-07,FUN-PL-16,Run Report,"Gives Work and Coordination, when the run of a unit ends, how it ended and its cost.",DEC-147.,draft

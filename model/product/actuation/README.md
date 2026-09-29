@@ -15,8 +15,8 @@ not a refusal, so `REQ-AC-007` refuses separately. The acts of the other systems
 fixed by their design. The acts on the outside world are declared (`DEC-138`, which restates `DEC-103`), and
 the declaration states the connection and the form of the arguments. Each act
 is held with its rule, which states what the platform refuses when it is done, and its
-guidance, which states how to use it well (`DEC-117`, `DEC-118`). How they reach an
-agent is `OPN-090`. Authorization judges an act with its arguments, not the act alone.
+guidance, which states how to use it well (`DEC-117`, `DEC-118`). They are available to an
+agent with the act (`DEC-149`). Authorization judges an act with its arguments, not the act alone.
 
 `DEC-104` has this system refuse an act in a declared class and tell the caller, and
 the caller raises the request and the gated unit. The act is done only when Work and
@@ -30,8 +30,7 @@ Access checks no authority over a call that it carries. `DEC-106` holds the reco
 Self-Observation, with the authority by reference.
 
 Waiting on other systems: `OPN-082` in Self-Observation. `OPN-092` asks which acts
-reach nothing outside the platform, such as running code, and it is this system's. `OPN-066` asks whether `DEC-069` stands against the cost
-of a cached prefix, and resolves at subsystem level. `DEC-110` sends an act on the outside world to the user when Authorization is silent.
+reach nothing outside the platform, such as running code, and it is this system's. `DEC-144` closes `OPN-066`: `DEC-069` stands, and an identity may name acts that are given at the start of a run. `DEC-110` sends an act on the outside world to the user when Authorization is silent.
 `DEC-109` keeps Authorization as a system that this system asks at each call to an act
 on the outside world, and
 gates a new act that no class names. A call that returns no result is not repeated (`REQ-AC-024`) and the caller is told

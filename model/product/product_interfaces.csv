@@ -65,8 +65,8 @@ INT-PL-63,EX,IN,the result of a call for an acquisition,REQ-EX-021,REQ-IN-037,dr
 INT-PL-64,EX,IN,a delivery that a service sends without a request,REQ-EX-028,REQ-IN-004,draft
 INT-PL-65,IA,EX,a message that is delivered through an external service,REQ-IA-033,REQ-EX-020,draft
 INT-PL-66,EX,IA,the result of the delivery of a message,REQ-EX-021,REQ-IA-034,draft
-INT-PL-67,TBD,EX,a call to a model,TBD,REQ-EX-020,draft
-INT-PL-68,EX,TBD,the result of a call to a model,REQ-EX-021,TBD,draft
+INT-PL-67,RN,EX,a call to a model,REQ-RN-011 REQ-RN-012,REQ-EX-020,draft
+INT-PL-68,EX,RN,the result of a call to a model,REQ-EX-021,REQ-RN-013,draft
 INT-PL-69,AD,EX,the position that speaks to the user,REQ-AD-064,REQ-EX-023,draft
 INT-PL-70,AD,EX,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-EX-023,draft
 INT-PL-71,EX,WC,a unit of work that External Access raises,REQ-EX-018 REQ-EX-015 REQ-EX-025 REQ-EX-044,REQ-WC-001,draft
@@ -79,3 +79,13 @@ INT-PL-77,IA,EX,a credential that the user gives,REQ-IA-035,REQ-EX-012,draft
 INT-PL-78,AC,EX,whether any declared act names a given connection,REQ-AC-040,REQ-EX-039,draft
 INT-PL-79,IN,EX,whether the definition of any source names a given connection,REQ-IN-039,REQ-EX-039,draft
 INT-PL-80,AD,EX,the cost of the use of each model,REQ-AD-044,REQ-EX-040,draft
+INT-PL-81,WC,RN,a unit of work that is sent to an agent,REQ-WC-011 REQ-WC-012 REQ-WC-046,REQ-RN-001,draft
+INT-PL-82,IA,RN,"a turn of the user in an exchange, with the agent of that exchange",REQ-IA-037,REQ-RN-003,draft
+INT-PL-83,RN,IA,the reply of the agent to a turn of the user,REQ-RN-004 REQ-RN-005,REQ-IA-038,draft
+INT-PL-84,AD,RN,what states an agent,REQ-AD-069,REQ-RN-006 REQ-RN-027 REQ-RN-028,draft
+INT-PL-85,AD,RN,the rules that bound every caller,REQ-AD-055,REQ-RN-008,draft
+INT-PL-86,AC,RN,"the set of acts that the position of a caller admits, and one act that the caller asks for",REQ-AC-008 REQ-AC-042,REQ-RN-009 REQ-RN-016,draft
+INT-PL-87,RN,AC,"a call of an agent to an act, with its caller",REQ-RN-014 REQ-RN-015,REQ-AC-041,draft
+INT-PL-88,AC,RN,the result of a call to an act,REQ-AC-011 REQ-AC-031,REQ-RN-017,draft
+INT-PL-89,WC,RN,a note on a unit of work whose run is running,REQ-WC-094,REQ-RN-018,draft
+INT-PL-90,RN,WC,"how the run of a unit of work ended, with its cost",REQ-RN-020 REQ-RN-021,REQ-WC-090,draft

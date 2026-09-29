@@ -11,9 +11,10 @@ functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
 **Status:** the product functions and requirements are written. The product is
-divided into ten systems. Five are written at system level, with functions,
+divided into eleven systems. Nine are written at system level, with functions,
 requirements, risks and safety requirements: Ingestion, State Custody, Work and
-Coordination, Agent Definition, and Authorization. The other five are empty.
+Coordination, Agent Definition, Authorization, Interaction, Actuation, External
+Access and Agent Runtime. Detection and Derivation, and Self-Observation, are empty.
 
 No system is finished. Each decomposition has reached back into the levels above it
 and into the systems written before it, and the questions that follow are held as
@@ -34,11 +35,11 @@ model/
 ├── model_conventions.md          the rules for the model
 ├── validate_model.py            traceability enforcement
 ├── product/                     the decomposition tree
-│   ├── product_functions.csv    14 functions. Capabilities, not "shall" statements
-│   ├── product_requirements.csv 30 requirements, one origin each
+│   ├── product_functions.csv    Capabilities, not "shall" statements
+│   ├── product_requirements.csv Requirements, one origin each
 │   ├── product_risks.csv        FMEA over this level
 │   ├── product_interfaces.csv   what crosses between systems, and who states it
-│   └── <system>/                one directory for each of the ten systems
+│   └── <system>/                one directory for each system
 │       └── <system>_tests.csv   acceptance criteria, one requirement each
 └── registers/
     ├── design_decisions.csv     what the system is
