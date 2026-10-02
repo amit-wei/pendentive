@@ -29,8 +29,9 @@ the agent reports it. `DEC-123`, which restates `DEC-107`, makes this system the
 Access checks no authority over a call that it carries. `DEC-106` holds the record of each act in
 Self-Observation, with the authority by reference.
 
-Waiting on other systems: `OPN-082` in Self-Observation. `OPN-092` asks which acts
-reach nothing outside the platform, such as running code, and it is this system's. `DEC-144` closes `OPN-066`: `DEC-069` stands, and an identity may name acts that are given at the start of a run. `DEC-110` sends an act on the outside world to the user when Authorization is silent.
+Waiting on other systems: `OPN-082` in Self-Observation. No act runs code: code
+that an agent writes runs only as a tool that the model provider runs for a call
+(`DEC-152`, which closes `OPN-092`). `DEC-144` closes `OPN-066`: `DEC-069` stands, and an identity may name acts that are given at the start of a run. `DEC-110` sends an act on the outside world to the user when Authorization is silent.
 `DEC-109` keeps Authorization as a system that this system asks at each call to an act
 on the outside world, and
 gates a new act that no class names. A call that returns no result is not repeated (`REQ-AC-024`) and the caller is told

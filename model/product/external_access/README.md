@@ -9,11 +9,11 @@ It carries and does not decide. `DEC-123`, which restates `DEC-107`, keeps the c
 an act with Actuation: this system checks no authority over a call that it carries, and
 carries a call only from Actuation, Ingestion, Interaction and Agent Runtime
 (`DEC-140`), and a copy only from State Custody, Agent Definition and Authorization (`REQ-EX-020`, `REQ-EX-031`). Every part that opens a
-connection off the host or holds a credential is here (`DEC-124`). The model provider is
-an external service, and this system carries each call to it. Each operation that an
+connection off the host or holds a credential is here (`DEC-124`, restated by `DEC-161`). A model is a
+service, and this system carries each call to it, on the host or at a provider. Each operation that an
 agent can call is a declared act in Actuation. A tool that the provider runs for a call
-is refused unless the provider's connection names it as one that only reads, which
-needs an answer of the user (`DEC-137`).
+is refused unless the provider's connection names it as one that only reads or that reaches nothing, which
+needs an answer of the user (`DEC-137`, restated by `DEC-160`).
 
 A connection is a declaration (`DEC-125`): the service, the account, the scopes, whether
 the account can pay or send in the name of the user, whether its use is metered and its
@@ -24,9 +24,9 @@ an answer and revokes the credential where the service allows it. Because this s
 holds a declaration, it refuses by position on the acts that it holds, as each holder
 does.
 
-A connection is metered until the user answers that it is not (`DEC-126`). At the
-limit of the month, each metered call is refused except the messages of Interaction and
-the calls to a model of the agent that speaks to the user and the agent that receives the
+A connection is metered until the user answers that it is not (`DEC-155`). At the
+limit of the month, each metered call is refused except the calls that Interaction gives
+(its messages and its calls to a model for speech) and the calls to a model of the agent that speaks to the user and the agent that receives the
 work that this system raises. A call is never repeated (`DEC-129`): the caller learns that it returned no
 result and decides.
 
@@ -35,5 +35,9 @@ the name of the user (`DEC-127`). How is `OPN-093`, and the lean is a session th
 reads. The holders decide when to make a copy, and this system carries it, encrypts it
 and keeps it for a period (`DEC-128`). The user holds the key.
 
-Open against this system: `OPN-093`, `OPN-094` (whether the connections survive the loss
-of the host). `RSK-EX-017` is open on `OPN-093`.
+State Custody, Interaction and Ingestion give this system their calls to a model that does
+not generate, and it refuses a call that generates from any system other than Agent
+Runtime, by the operation that the call names (`DEC-154`). A copy holds no credential, no
+declared connection and no declared resource (`DEC-157`).
+
+Open against this system: `OPN-093`. `RSK-EX-017` is open on `OPN-093`.

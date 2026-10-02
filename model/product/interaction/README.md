@@ -8,7 +8,10 @@ A client of the platform reaches the platform through this system, and no client
 another person wrote reaches it (`DEC-143`). Agent Runtime runs the agent of each
 exchange (`DEC-142`). The user chooses the agent of an exchange in text
 (`DEC-088`). Every spoken exchange is with the agent that holds the position that speaks to the
-user (`DEC-089`, `DEC-119`), which Agent Definition defines like any other (`DEC-083`). The agent that puts a
+user (`DEC-089`, `DEC-119`), which Agent Definition defines like any other (`DEC-083`, restated by `DEC-153`). An
+exchange ends only when the user ends it, and a pause or a restart ends only its run
+(`DEC-156`). Its calls to the models that transcribe speech and that speak
+do not generate, and External Access carries them (`DEC-154`, `DEC-161`). The agent that puts a
 question may put it in its own words (`DEC-104`). An answer of the user reaches this system
 from the user and not through an agent, which is what `REQ-PL-030` needs. Each
 exchange is written to life state (`DEC-120`), in a kind that this system fixes by

@@ -5,7 +5,7 @@ INT-PL-03,IN,ST,the time of an observation,REQ-IN-018,REQ-ST-033,draft
 INT-PL-04,IN,ST,the identifier of an item,REQ-IN-007,REQ-ST-008,draft
 INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030 REQ-ST-060,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
-INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019,REQ-EX-031,draft
+INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019 REQ-ST-070,REQ-EX-031,draft
 INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,REQ-AC-011,draft
 INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045,draft
 INT-PL-10,WC,IA,a unit of work that asks the user,REQ-WC-047 REQ-WC-048,REQ-IA-011 REQ-IA-014 REQ-IA-018,draft
@@ -57,7 +57,7 @@ INT-PL-55,AU,AC,"the result of a call, or of a released gated unit, that Actuati
 INT-PL-56,AD,IA,the position that speaks to the user,REQ-AD-064,REQ-IA-004,draft
 INT-PL-57,IA,ST,the kind of each exchange that is written,REQ-IA-027,REQ-ST-060 REQ-ST-061,draft
 INT-PL-58,AU,EX,the copy of the declared classes away from the host,REQ-AU-015,REQ-EX-031,draft
-INT-PL-59,EX,ST,a copy of life state for a restoration,REQ-EX-032,REQ-ST-020,draft
+INT-PL-59,EX,ST,a copy of life state for a restoration,REQ-EX-032,REQ-ST-020 REQ-ST-071,draft
 INT-PL-60,EX,AD,a copy of what states an agent for a restoration,REQ-EX-032,REQ-AD-037,draft
 INT-PL-61,EX,AU,a copy of the declared classes for a restoration,REQ-EX-032,REQ-AU-016,draft
 INT-PL-62,IN,EX,"a call for an acquisition, which names the connection of the source",REQ-IN-036,REQ-EX-020,draft
@@ -89,3 +89,14 @@ INT-PL-87,RN,AC,"a call of an agent to an act, with its caller",REQ-RN-014 REQ-R
 INT-PL-88,AC,RN,the result of a call to an act,REQ-AC-011 REQ-AC-031,REQ-RN-017,draft
 INT-PL-89,WC,RN,a note on a unit of work whose run is running,REQ-WC-094,REQ-RN-018,draft
 INT-PL-90,RN,WC,"how the run of a unit of work ended, with its cost",REQ-RN-020 REQ-RN-021,REQ-WC-090,draft
+INT-PL-91,IN,EX,a call to a model that does not generate,REQ-IN-040,REQ-EX-020,draft
+INT-PL-96,IA,RN,the exchange so far,REQ-IA-041,REQ-RN-034,draft
+INT-PL-97,ST,EX,a call to a model that does not generate,REQ-ST-062,REQ-EX-020,draft
+INT-PL-100,EX,IN,the result of a call to a model,REQ-EX-021,REQ-IN-037,draft
+INT-PL-101,IA,EX,a call to a model that does not generate,REQ-IA-042,REQ-EX-020,draft
+INT-PL-102,EX,IA,the result of a call to a model,REQ-EX-021,REQ-IA-043,draft
+INT-PL-103,EX,ST,the result of a call to a model,REQ-EX-021,REQ-ST-066,draft
+INT-PL-104,AC,EX,the copy of the declared acts away from the host,REQ-AC-043,REQ-EX-031,draft
+INT-PL-105,EX,AC,a copy of the declared acts for a restoration,REQ-EX-032,REQ-AC-044,draft
+INT-PL-106,IN,EX,the copy of the definitions of the sources away from the host,REQ-IN-042,REQ-EX-031,draft
+INT-PL-107,EX,IN,a copy of the definitions of the sources for a restoration,REQ-EX-032,REQ-IN-043,draft

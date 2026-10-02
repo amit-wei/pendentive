@@ -36,7 +36,7 @@ PATH_CODES = r"[A-Z]{2}(?:-[A-Z]{2}){0,2}"
 FUNCTION_ID = re.compile(rf"^FUN-{PATH_CODES}-\d{{2}}$")
 REQUIREMENT_ID = re.compile(rf"^REQ-{PATH_CODES}-\d{{3}}$")
 RISK_ID = re.compile(rf"^RSK-{PATH_CODES}-\d{{3}}$")
-INTERFACE_ID = re.compile(rf"^INT-{PATH_CODES}-\d{{2}}$")
+INTERFACE_ID = re.compile(rf"^INT-{PATH_CODES}-\d{{2,3}}$")    # MET-026
 TEST_ID = re.compile(rf"^TST-{PATH_CODES}-\d{{3}}$")
 CONSTRAINT_SOURCE = re.compile(r"^Constraint: .+$")    # Constraint: Amit
 
@@ -399,7 +399,7 @@ def main():
     for row in interfaces:
         iid = row["id"]
         if not INTERFACE_ID.match(iid):
-            errors.append(f"{iid}: malformed interface identifier (expected INT-PL-nn)")
+            errors.append(f"{iid}: malformed interface identifier (expected INT-PL-nn or INT-PL-nnn)")
         if iid in interface_ids:
             errors.append(f"{iid}: duplicate interface identifier")
         interface_ids.add(iid)

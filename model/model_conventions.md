@@ -67,7 +67,7 @@ do not generate it (`MET-017`).
 | `REQ` | a "shall" that constrains the design | `REQ-<path>-nnn` |
 | `TST` | a case that verifies a requirement | `TST-<path>-nnn` |
 | `RSK` | a failure mode, scored by FMEA | `RSK-<path>-nnn` |
-| `INT` | one thing that crosses between two compartments | `INT-<owner>-nn` |
+| `INT` | one thing that crosses between two compartments | `INT-<owner>-nn`, or `nnn` after 99 (`MET-026`) |
 | `DEC` | a decision about what the system is | `DEC-nnn` |
 | `MET` | a decision about how the model is written | `MET-nnn` |
 | `OPN` | a question that is held, not guessed at | `OPN-nnn` |
