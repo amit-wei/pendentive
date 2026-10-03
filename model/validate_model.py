@@ -583,6 +583,40 @@ def main():
                     errors.append(
                         f"{row['id']}: rests on {ref}, which is dropped, without saying so")
 
+    # -- A report reaches Self-Observation through a row that names it ----------
+    # MET-027 gives the bare words "shall report" one meaning below product
+    # level: a fact to Self-Observation. The words are the only marker, so a row
+    # that starts to report, or stops, changes the set that REQ-SO-020 raises
+    # work for without changing any identifier. Each system therefore lists its
+    # reporting rows by identifier in its "give Self-Observation" row, and this
+    # check holds the list and the words to each other in both directions.
+    bare_report = re.compile(r"\bshall (?:also )?report\b(?!\s+to\b)")
+    list_phrase = re.compile(r"The facts are those of ([^.]*)\.")
+    give_text = "give Self-Observation each fact that it reports"
+    live = [r for r in requirements if (r.get("status") or "").strip() != "dropped"]
+    reporting, listed = {}, {}
+    for row in live:
+        compartment = compartment_of(row["id"]) or ""
+        system = compartment.split("-")[0]
+        if compartment == "PL" or system == "SO":
+            continue    # PL reports to the user; SO reports to itself
+        if bare_report.search(row["text"]):
+            reporting.setdefault(system, set()).add(row["id"])
+        if row["text"].strip() == f"The system shall {give_text}.":
+            # Only the list after the fixed phrase counts, so a rationale that
+            # cites another row for some other reason does not join the list.
+            found = list_phrase.search(row["rationale"])
+            listed.setdefault(system, set()).update(
+                ref for ref in REFERENCE.findall(found.group(1) if found else "")
+                if ref.startswith(f"REQ-{system}-"))
+    for system in sorted(set(reporting) | set(listed)):
+        for rid in sorted(reporting.get(system, set()) - listed.get(system, set())):
+            errors.append(f"{rid}: reports (MET-027), but no row of {system} that gives "
+                          f"Self-Observation each fact lists it")
+        for rid in sorted(listed.get(system, set()) - reporting.get(system, set())):
+            errors.append(f"{rid}: listed as a fact for Self-Observation, but its text "
+                          f"does not say 'shall report' (MET-027)")
+
     # -- Report ---------------------------------------------------------------
     for w in warnings:
         print(f"WARNING  {w}")

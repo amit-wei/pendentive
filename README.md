@@ -11,10 +11,10 @@ functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
 **Status:** the product functions and requirements are written. The product is
-divided into eleven systems. Nine are written at system level, with functions,
+divided into eleven systems. Ten are written at system level, with functions,
 requirements, risks and safety requirements: Ingestion, State Custody, Work and
 Coordination, Agent Definition, Authorization, Interaction, Actuation, External
-Access and Agent Runtime. Detection and Derivation, and Self-Observation, are empty.
+Access, Agent Runtime and Self-Observation. Detection and Derivation is empty.
 
 No system is finished. Each decomposition has reached back into the levels above it
 and into the systems written before it, and the questions that follow are held as
@@ -75,7 +75,9 @@ one requirement that exists in its own compartment and that no criterion is writ
 against a product requirement, that every cross-reference in the registers, the
 schema, the README and the documentation points at something real, and that no row
 which stands rests on a decision that was superseded or a requirement that was
-dropped without naming the successor or saying that it is gone.
+dropped without naming the successor or saying that it is gone, and that each
+system requirement that reports a fact to Self-Observation is listed by the row of its
+system that gives those facts, and the other way round.
 
 Enable the pre-commit hook once:
 

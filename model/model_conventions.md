@@ -78,6 +78,11 @@ A function is a capability. It is never a "shall". Size is not a criterion. A
 function can be small or large, and that is not a reason to merge it or to divide
 it. The criterion is one capability in one row (`MET-012`).
 
+A function that exists only to guard its own compartment against failure is a safety
+requirement, not a function. A capability that a parent allocates to a child to answer a
+parent risk is a function of the child (`MET-028`). The test: is the compartment the
+thing that is guarded, or the thing that guards?
+
 ## Interfaces
 
 An interface is held by the compartment that holds both of its sides
@@ -196,3 +201,6 @@ what `agreed` means: in scope and red-lined, not merely written.
 13. A value that is not yet known is written as the word `TBD`, so that a search
     finds it. A requirement may carry a `TBD`. It may not carry a value that nobody
     can check.
+14. In a requirement of a system or below it, "the system shall report" with no receiver means that the system gives a
+    fact about the platform to Self-Observation (`MET-027`, `DEC-162`). A reply or a read-out
+    names its receiver and uses "give". An acknowledgement uses "state".

@@ -41,13 +41,13 @@ INT-PL-39,AD,AC,the position of a caller and what it admits,REQ-AD-014,REQ-AC-00
 INT-PL-40,AD,AC,whether any declared position names a given declaration,REQ-AD-053,REQ-AC-003,draft
 INT-PL-41,AC,EX,"an act on the outside world, as a call to an external service",REQ-AC-019,REQ-EX-020,draft
 INT-PL-42,EX,AC,the result of a call to an external service,REQ-EX-021,REQ-AC-033,draft
-INT-PL-43,AC,SO,the record of an act on the outside world,REQ-AC-021 REQ-AC-023 REQ-AC-030,TBD,draft
+INT-PL-43,AC,SO,the record of an act on the outside world,REQ-AC-021 REQ-AC-023 REQ-AC-030,REQ-SO-004,draft
 INT-PL-44,AC,ST,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-ST-052,draft
 INT-PL-45,AC,WC,"a call of a caller to an act that it holds, with the caller",REQ-AC-010 REQ-AC-027,REQ-WC-087,draft
 INT-PL-46,AC,AD,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-AD-057,draft
 INT-PL-47,AC,IN,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-IN-031,draft
 INT-PL-48,AC,AU,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-AU-024,draft
-INT-PL-49,SO,AC,the records of acts on the outside world,TBD,REQ-AC-024 REQ-AC-025,draft
+INT-PL-49,SO,AC,the records of acts on the outside world,REQ-SO-005,REQ-AC-024 REQ-AC-025,draft
 INT-PL-50,AU,AC,whether any declared class names a given act on the outside world,REQ-AU-022,REQ-AC-035,draft
 INT-PL-51,ST,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-ST-053,REQ-AC-033,draft
 INT-PL-52,WC,AC,the result of a call that Actuation carried,REQ-WC-088,REQ-AC-033,draft
@@ -69,9 +69,9 @@ INT-PL-67,RN,EX,a call to a model,REQ-RN-011 REQ-RN-012,REQ-EX-020,draft
 INT-PL-68,EX,RN,the result of a call to a model,REQ-EX-021,REQ-RN-013,draft
 INT-PL-69,AD,EX,the position that speaks to the user,REQ-AD-064,REQ-EX-023,draft
 INT-PL-70,AD,EX,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-EX-023,draft
-INT-PL-71,EX,WC,a unit of work that External Access raises,REQ-EX-018 REQ-EX-015 REQ-EX-025 REQ-EX-044,REQ-WC-001,draft
+INT-PL-71,EX,WC,a unit of work that External Access raises,REQ-EX-018 REQ-EX-015 REQ-EX-044,REQ-WC-001,draft
 INT-PL-72,EX,WC,that a declared connection that had no valid credential has one,REQ-EX-019,REQ-WC-051,draft
-INT-PL-73,EX,SO,the record of a call,REQ-EX-030,TBD,draft
+INT-PL-73,EX,SO,the record of a call,REQ-EX-030,REQ-SO-006,draft
 INT-PL-74,AC,EX,"a call of a caller to an act that it holds, with the caller, or a released gated unit whose act it holds, with its raiser, the answer and the request",REQ-AC-010 REQ-AC-026 REQ-AC-027,REQ-EX-009,draft
 INT-PL-75,EX,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-EX-010,REQ-AC-033,draft
 INT-PL-76,AD,EX,the position of a caller and what it admits,REQ-AD-014,REQ-EX-008 REQ-EX-011,draft
@@ -100,3 +100,16 @@ INT-PL-104,AC,EX,the copy of the declared acts away from the host,REQ-AC-043,REQ
 INT-PL-105,EX,AC,a copy of the declared acts for a restoration,REQ-EX-032,REQ-AC-044,draft
 INT-PL-106,IN,EX,the copy of the definitions of the sources away from the host,REQ-IN-042,REQ-EX-031,draft
 INT-PL-107,EX,IN,a copy of the definitions of the sources for a restoration,REQ-EX-032,REQ-IN-043,draft
+INT-PL-108,WC,SO,"how each unit of work closed, with its agent",REQ-WC-096,REQ-SO-028,draft
+INT-PL-109,WC,SO,"the answer of the user to each request for an affirmative answer, with the agent that raised it",REQ-WC-097,REQ-SO-029,draft
+INT-PL-110,SO,WC,a unit of work that Self-Observation raises,REQ-SO-020 REQ-SO-021,REQ-WC-001,draft
+INT-PL-111,SO,IA,a notice of a unit of work that Self-Observation raised and that no agent took,REQ-SO-022,TBD,draft
+INT-PL-112,SO,IA,the state of the platform,REQ-SO-023,TBD,draft
+INT-PL-113,WC,SO,"the state of each unit of work that Self-Observation raised, and each refusal of it",REQ-WC-009 REQ-WC-031,REQ-SO-033,draft
+INT-PL-114,AD,SO,a fact about the platform that the system reports,REQ-AD-072,REQ-SO-030,draft
+INT-PL-115,EX,SO,a fact about the platform that the system reports,REQ-EX-046,REQ-SO-030,draft
+INT-PL-116,IN,SO,a fact about the platform that the system reports,REQ-IN-044,REQ-SO-030,draft
+INT-PL-117,IA,SO,a fact about the platform that the system reports,REQ-IA-044,REQ-SO-030,draft
+INT-PL-118,ST,SO,a fact about the platform that the system reports,REQ-ST-072,REQ-SO-030,draft
+INT-PL-120,EX,SO,the metered cost of the month and its limit,REQ-EX-047,REQ-SO-032,draft
+INT-PL-121,WC,SO,the number of units of work that are not closed,REQ-WC-033,REQ-SO-034,draft

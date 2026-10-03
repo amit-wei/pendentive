@@ -24,10 +24,10 @@ an answer and revokes the credential where the service allows it. Because this s
 holds a declaration, it refuses by position on the acts that it holds, as each holder
 does.
 
-A connection is metered until the user answers that it is not (`DEC-155`). At the
+A connection is metered until the user answers that it is not (`DEC-165`). At the
 limit of the month, each metered call is refused except the calls that Interaction gives
-(its messages and its calls to a model for speech) and the calls to a model of the agent that speaks to the user and the agent that receives the
-work that this system raises. A call is never repeated (`DEC-129`): the caller learns that it returned no
+(its messages and its calls to a model for speech) and the calls to a model of the agent that speaks to the user and the agent that receives a
+unit that names no agent. At the limit this system reports, and Self-Observation raises the work (`DEC-162`). A call is never repeated (`DEC-129`): the caller learns that it returned no
 result and decides.
 
 A session that an agent drives, such as a browser, is signed in here and never sends in
