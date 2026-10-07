@@ -6,7 +6,7 @@ The agents are the tenants. Pendentive is what they stand on. It gives them one
 body of life state, a hierarchy that sets their authority, a place where work stays
 between conversations, and a way to reach the person that they work for.
 
-The work is done in public. It uses systems engineering from end to end: product
+The methodology of system design is central. It uses systems engineering from end to end: product
 functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
@@ -25,7 +25,7 @@ system that can be worked with, not one that is closed. There is no code.
 
 ```
 model/     structured data, machine-validated. The source of truth
-docs/      prose and diagrams
+docs/      prose and diagrams; docs/method/ holds how the work is done
 ```
 
 The rule is mechanical: if `validate_model.py` reads it, it belongs in `model/`.
@@ -61,7 +61,7 @@ acceptable that they are vague. Specificity arrives with their children.
 ## Checking it
 
 ```
-python3 model/validate_model.py
+uv run python model/validate_model.py
 ```
 
 Verifies that identifiers are well formed and unique, that every requirement has

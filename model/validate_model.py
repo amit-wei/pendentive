@@ -523,9 +523,10 @@ def main():
     targets.append(os.path.join(MODEL, "model_conventions.md"))
     targets.append(os.path.join(REPO, "README.md"))
     targets.append(os.path.join(REPO, "CLAUDE.md"))
+    targets.append(os.path.join(MODEL, "CLAUDE.md"))
     targets += sorted(glob.glob(os.path.join(MODEL, "**", "README.md"), recursive=True))
     if os.path.isdir(DOCS):
-        targets += sorted(glob.glob(os.path.join(DOCS, "*.md")))
+        targets += sorted(glob.glob(os.path.join(DOCS, "**", "*.md"), recursive=True))
 
     for path in targets:
         if not os.path.exists(path):

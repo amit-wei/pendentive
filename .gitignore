@@ -1,11 +1,10 @@
-# Personal data never leaves this machine (REQ-PL-023, RSK-PL-005).
+# No personal information in the repository (MET-029).
 private/
-
-# The build loop is not design documentation and is not published (MET-002).
-CLAUDE.md
-build/
 
 *.env
 .env*
 __pycache__/
 *.pyc
+
+# The private working state of the build: its own private repository, cloned here.
+workbench/

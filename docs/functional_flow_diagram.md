@@ -85,4 +85,4 @@ Settled since this diagram was drawn: agents execute both inside the platform an
 from attached clients, by runtime rather than by agent (`MET-001`); contention is
 arbitrated by a coordinator agent which escalates to the user (`DEC-003`); life state
 is held on the host with a backup to Drive serving both recovery and degraded
-operation (`MET-002`).
+operation (`DEC-020`).
