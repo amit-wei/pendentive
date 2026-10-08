@@ -191,10 +191,11 @@ what `agreed` means: in scope and red-lined, not merely written.
 6. A requirement is verified only after all of its children are verified.
 7. A safety requirement sits in the compartment of the risk that it answers.
 8. A risk is mitigated by requirements in its compartment or below it, never above.
-9. A row that is `draft` and that no commit has carried may be deleted
-   (`MET-024`). Once a commit carries a row, nothing is deleted: a requirement
-   becomes `dropped`, and a decision becomes `superseded` or `reversed` and names
-   what replaced it. An identifier is never reused.
+9. A row that is `draft` and that no commit has carried may be deleted, and its
+   identifier may be used again (`MET-030`). Once a commit carries a row, nothing is
+   deleted: a requirement becomes `dropped`, and a decision becomes `superseded` or
+   `reversed` and names what replaced it. An identifier that a commit has carried is
+   never used again.
 10. A question that you cannot answer becomes an `OPN-` row.
 11. Vague is permitted. Unverifiable is not.
 12. Text uses Simplified Technical English (`MET-013`).

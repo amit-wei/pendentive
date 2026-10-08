@@ -29,8 +29,15 @@ The builder decides. The drafting agent proposes, drafts and asks.
 8. **FMEA.** The risks are proposed in the session and go into the repository only
    after the builder has red-lined them (`MET-017`: from the failure of the
    compartment as seen from outside, not from the function list).
-9. **Audit** with fresh context (`audit.md`). Every finding is applied, decided or
-   rejected with a reason.
+9. **Audit** with the `model-auditor` agent (`.claude/agents/`), also after every
+   sweep. Brief it with what changed, the diff, the validator output and the builder's
+   recent decisions. Never tell it not to re-litigate. Resume the same agent for each
+   later pass. Passes continue until one finds only low, mechanical items, and every
+   fix is audited before close. Check each claim against the registers, then apply
+   each `MECHANICAL` finding, bring each `DECISION` finding and challenge to the
+   builder, and reject a wrong finding with its reason. Bring the speculative items to
+   the builder in one short list. The auditor ends each report with a change to its own
+   brief; the builder decides, and an accepted change goes into the agent file.
 10. **Close.** The validator is clean. Decisions taken along the way are `DEC-` or
     `MET-` rows; unanswered questions are `OPN-` rows. Commit when the builder says.
 

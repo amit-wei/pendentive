@@ -12,7 +12,6 @@ how the model and the platform are worked on.
 |---|---|
 | `decomposition.md` | the procedure for one system, from the crawl to the close |
 | `writing_rows.md` | how to write a function, a requirement, a risk, a decision and an interface well |
-| `audit.md` | the fresh-context audit that closes every system and every sweep |
 | `parallel_sessions.md` | how two sessions work on the model at the same time |
 
 A procedure that has a skill is held by the skill, in `.claude/skills/` or

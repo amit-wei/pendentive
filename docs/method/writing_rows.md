@@ -114,5 +114,5 @@ valid, and this file does not repeat them. Read it first.
 - Take `fieldnames` from the `DictReader`, not from the first row: some files hold only
   a header.
 - Open and close each file in a `with` block. An unclosed handle can truncate a file.
-- Read the highest identifier; take the next free one at the moment of writing.
-- Never reuse an identifier, even one that was deleted before any commit carried it.
+- Read the highest identifier; the next one is free (`MET-030`). Take it at the moment
+  of writing.
