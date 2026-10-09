@@ -4,7 +4,6 @@ ST,product/state_custody,State Custody
 IN,product/ingestion,Ingestion
 WC,product/work_coordination,Work and Coordination
 AD,product/agent_definition,Agent Definition
-DE,product/detection_and_derivation,Detection and Derivation
 IA,product/interaction,Interaction
 AU,product/authorization,Authorization
 AC,product/actuation,Actuation

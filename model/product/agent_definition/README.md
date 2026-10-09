@@ -9,7 +9,8 @@ platform is stated once. Every agent is given the rules that bound every caller.
 rule for an act, and the guidance for it, are held with the act in Actuation
 (`DEC-117`, `DEC-118`), and they are available to an agent with the act (`DEC-149`).
 A position states what an agent admits (`DEC-019`, `DEC-029`). An identity states
-what an agent is for, at two levels (`DEC-038`). A model runs the agent (`DEC-065`).
+what an agent is for, at three levels: the platform, the position and the agent
+(`DEC-172`). A model runs the agent (`DEC-065`).
 `MET-029` keeps the content of an identity outside the model; the system holds
 that each part exists and what each part must state.
 

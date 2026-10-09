@@ -7,12 +7,12 @@ INT-PL-05,IN,ST,the form of an item,REQ-IN-005,REQ-ST-030 REQ-ST-060,draft
 INT-PL-06,IN,ST,an item that no longer exists at its source,REQ-IN-024,REQ-ST-009,draft
 INT-PL-07,ST,EX,the copy of life state away from the host,REQ-ST-019 REQ-ST-070,REQ-EX-031,draft
 INT-PL-08,ST,AC,the writer of a value that is served,REQ-ST-014,REQ-AC-011,draft
-INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045,draft
+INT-PL-09,AD,WC,the position of an agent and what it admits,REQ-AD-014,REQ-WC-014 REQ-WC-023 REQ-WC-030 REQ-WC-036 REQ-WC-040 REQ-WC-045 REQ-WC-099,draft
 INT-PL-10,WC,IA,a unit of work that asks the user,REQ-WC-047 REQ-WC-048,REQ-IA-011 REQ-IA-014 REQ-IA-018,draft
 INT-PL-11,TBD,WC,a unit of work that a system raises,TBD,TBD,draft
 INT-PL-12,AD,WC,the position that receives a unit of work that names no agent,REQ-AD-028,REQ-WC-012,draft
 INT-PL-13,AD,EX,the copy of what states an agent away from the host,REQ-AD-036,REQ-EX-031,draft
-INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,REQ-ST-017 REQ-ST-018 REQ-ST-032 REQ-ST-034 REQ-ST-043,draft
+INT-PL-14,AD,ST,the position of a caller and what it admits,REQ-AD-014,REQ-ST-017 REQ-ST-018 REQ-ST-032 REQ-ST-034 REQ-ST-043 REQ-ST-075 REQ-ST-085,draft
 INT-PL-15,AD,IA,the set of agents that a client can attach to,REQ-AD-024,REQ-IA-002,draft
 INT-PL-16,AU,AD,"the declared classes of action that need the authorization of the user (dropped: DEC-069, nothing crosses to Agent Definition)",REQ-AU-006,TBD,dropped
 INT-PL-17,AC,AU,"an act that a caller called, with its arguments, for classification",REQ-AC-013,REQ-AU-005,draft
@@ -113,3 +113,12 @@ INT-PL-117,IA,SO,a fact about the platform that the system reports,REQ-IA-044,RE
 INT-PL-118,ST,SO,a fact about the platform that the system reports,REQ-ST-072,REQ-SO-030,draft
 INT-PL-120,EX,SO,the metered cost of the month and its limit,REQ-EX-047,REQ-SO-032,draft
 INT-PL-121,WC,SO,the number of units of work that are not closed,REQ-WC-033,REQ-SO-034,draft
+INT-PL-123,ST,WC,a unit of work that a condition over life state raises,REQ-ST-079,REQ-WC-001,draft
+INT-PL-124,AD,WC,whether an agent is retired,REQ-AD-077,REQ-WC-104,draft
+INT-PL-125,AD,ST,whether an agent is retired,REQ-AD-077,REQ-ST-081,draft
+INT-PL-126,WC,ST,the state of a unit of work,REQ-WC-009,REQ-ST-086,draft
+INT-PL-127,WC,SO,the time at which the system last evaluated its conditions over time,REQ-WC-110,REQ-SO-035,draft
+INT-PL-128,ST,SO,the time at which the system last ran the queries of its conditions over life state,REQ-ST-087,REQ-SO-035,draft
+INT-PL-129,AD,WC,the place of an agent in the declared hierarchy,REQ-AD-016,REQ-WC-111,draft
+INT-PL-130,WC,ST,the unit of work that an agent is doing,REQ-WC-114,REQ-ST-090,draft
+INT-PL-131,AD,ST,the place of an agent in the declared hierarchy,REQ-AD-016,REQ-ST-089,draft

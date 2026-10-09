@@ -11,10 +11,10 @@ functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
 **Status:** the product functions and requirements are written. The product is
-divided into eleven systems. Ten are written at system level, with functions,
+divided into ten systems, each written at system level, with functions,
 requirements, risks and safety requirements: Ingestion, State Custody, Work and
 Coordination, Agent Definition, Authorization, Interaction, Actuation, External
-Access, Agent Runtime and Self-Observation. Detection and Derivation is empty.
+Access, Agent Runtime and Self-Observation.
 
 No system is finished. Each decomposition has reached back into the levels above it
 and into the systems written before it, and the questions that follow are held as

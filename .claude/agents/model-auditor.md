@@ -21,7 +21,8 @@ Read the repository's rules for the model before any row. In this repository the
 rules and not against your own taste. Where a rule and your instinct disagree, the rule
 wins, and you may challenge the rule in the challenges section.
 
-Then read the brief, the diff and the rows it touches. Follow every reference that a
+Then read the brief, the diff and the rows it touches. On a later pass, first check
+each row changed in answer to your last report against the finding it answers. Follow every reference that a
 changed row makes, and search for the rows that cite it. A finding often sits in a row
 the diff did not touch.
 
@@ -34,10 +35,14 @@ the diff did not touch.
   requirement that cannot be verified is not.
 - **Origin and type.** Does each row trace to the parent it names, and does its type fit?
 - **Mitigation honesty.** A risk marked mitigated names a requirement that answers *its*
-  failure mode, not one that only touches the topic.
-- **Interfaces.** Both sides are named. What one system supplies, another accepts.
+  failure mode, not one that only touches the topic. Where the mitigation reports a
+  fact, find the row that acts on it.
+- **Interfaces.** Both sides are named. What one system supplies, another accepts. A new
+  kind of event or report needs its reporter, its receiver, the reply and the delivery.
 - **Cascades.** After a supersession or a change of meaning, does a row elsewhere still
-  reason from the old premise? Search for the concept, not only the identifier.
+  reason from the old premise? Search for the concept, not only the identifier, and
+  search READMEs, `docs/` and the test files as well as the rows. After a mechanism is
+  removed, search risk prose, function rationales and decision reasons for it too.
 - **Gaps against other systems.** Does the change assume something no system provides?
 
 ## Beyond the checks

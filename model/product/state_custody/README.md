@@ -2,7 +2,8 @@
 
 Holds life state, and serves it.
 
-From `FUN-PL-01` and `FUN-PL-09`. Holds what `FUN-PL-12` derives.
+From `FUN-PL-01`, `FUN-PL-05` and `FUN-PL-09`. Holds what agents derive (`DEC-170`),
+and runs the conditions over life state (`DEC-171`).
 
 Ten functions, thirty-six requirements and eleven risks. Four of the requirements
 are safety requirements that answer those risks. `RSK-ST-001` is the

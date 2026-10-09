@@ -8,8 +8,8 @@ TST-AD-006,REQ-AD-005,The system accepts a change to the identity of an agent fr
 TST-AD-007,REQ-AD-005,The system refuses a change to the identity of an agent from a caller that is not that agent and is not the parent of that agent.,draft
 TST-AD-008,REQ-AD-006,"After an agent is retired, the system gives no position that has that agent as a holder.",draft
 TST-AD-009,REQ-AD-007,"The system gives what states an agent after the platform stops and starts, and what it gives is what it gave before the platform stopped.",draft
-TST-AD-010,REQ-AD-008,"The system gives, for one agent, the identity of that agent and the identity of the position that the agent holds.",draft
-TST-AD-011,REQ-AD-009,"After two changes to an agent, the system gives both earlier configurations, each with the time of its change and the caller that made it.",draft
+TST-AD-010,REQ-AD-008,"The system gives, for one agent, the identity of the platform, the identity of the position that the agent holds and the identity of that agent.",draft
+TST-AD-011,REQ-AD-009,"After two changes to an agent, the system gives both earlier configurations, each with the time of its change, the caller that made it and the reason that the change states.",draft
 TST-AD-012,REQ-AD-010,"After an agent is retired, the system gives what that agent was.",draft
 TST-AD-013,REQ-AD-011,"The system accepts a declaration of a position that states a part of each body, a set of acts, the positions that its holder may confer, and the positions whose holders it may retire.",draft
 TST-AD-014,REQ-AD-014,"The system gives, for one agent, the position of that agent and the part of each body, the acts and the positions to confer that the position admits.",draft

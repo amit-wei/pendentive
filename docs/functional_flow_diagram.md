@@ -18,7 +18,7 @@ flowchart TB
         direction TB
         F2["FUN-PL-02<br/>Ingestion"]
         F1[("FUN-PL-01<br/>Life State Custody")]
-        F12["FUN-PL-12<br/>Behavioural Learning"]
+        F12["FUN-PL-12<br/>Learning"]
         F5["FUN-PL-05<br/>Detection &amp; Initiation"]
         F6["FUN-PL-06<br/>Conversation &amp; Reach"]
         F3["FUN-PL-03<br/>Agent Coordination"]
