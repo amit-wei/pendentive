@@ -122,3 +122,14 @@ INT-PL-128,ST,SO,the time at which the system last ran the queries of its condit
 INT-PL-129,AD,WC,the place of an agent in the declared hierarchy,REQ-AD-016,REQ-WC-111,draft
 INT-PL-130,WC,ST,the unit of work that an agent is doing,REQ-WC-114,REQ-ST-090,draft
 INT-PL-131,AD,ST,the place of an agent in the declared hierarchy,REQ-AD-016,REQ-ST-089,draft
+INT-PL-132,HO,SO,each fact that Hosting reports,REQ-HO-013,REQ-SO-030,draft
+INT-PL-133,HO,SO,the memory and the storage that each part uses,REQ-HO-012,REQ-SO-037,draft
+INT-PL-134,SO,EX,the signal that the platform runs,REQ-SO-041,REQ-EX-020,draft
+INT-PL-135,HOST,HO,a runtime that runs each part apart from the other parts,,REQ-HO-001 REQ-HO-002 REQ-HO-004 REQ-HO-005 REQ-HO-006 REQ-HO-009 REQ-HO-010 REQ-HO-011 REQ-HO-012 REQ-HO-016 REQ-HO-017,draft
+INT-PL-136,HOST,IA,"each request from a client of the user, received and decrypted by the host",,REQ-IA-047,draft
+INT-PL-137,HOST,EX,"each delivery that a service sends, received and decrypted by the host",,REQ-EX-051,draft
+INT-PL-148,HOST,HO,memory for the platform of at least the budget of REQ-PL-039,,REQ-HO-009,draft
+INT-PL-149,HOST,HO,storage for the platform that is kept when the host starts again,,REQ-HO-008 REQ-HO-010,draft
+INT-PL-150,HOST,HO,a start of the runtime when the host starts,,REQ-HO-001,draft
+INT-PL-151,HOST,EX,a route from the host to a destination outside it,,REQ-EX-020 REQ-EX-021 REQ-EX-038,draft
+INT-PL-152,HOST,HO,"storage for the platform of at least the budget of REQ-PL-040, with the reserve of REQ-HO-008 and the data",,REQ-HO-008 REQ-HO-010,draft

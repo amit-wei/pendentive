@@ -5,10 +5,11 @@ holds the connections and their credentials, carries each call, and records each
 
 From `FUN-PL-08`, `FUN-PL-02`, `FUN-PL-15`, `FUN-PL-13`, `FUN-PL-11` and `FUN-PL-01`.
 
-It carries and does not decide. `DEC-123`, which restates `DEC-107`, keeps the check on
+It carries and does not decide. `DEC-183`, which restates `DEC-123`, keeps the check on
 an act with Actuation: this system checks no authority over a call that it carries, and
-carries a call only from Actuation, Ingestion, Interaction and Agent Runtime
-(`DEC-140`), and a copy only from State Custody, Agent Definition and Authorization (`REQ-EX-020`, `REQ-EX-031`). Every part that opens a
+carries a call only from Actuation, Ingestion, Interaction, Agent Runtime (`DEC-140`),
+State Custody and Self-Observation, and a copy only from State Custody, Agent Definition,
+Authorization, Actuation and Ingestion (`REQ-EX-020`, `REQ-EX-031`). Every part that opens a
 connection off the host or holds a credential is here (`DEC-124`, restated by `DEC-161`). A model is a
 service, and this system carries each call to it, on the host or at a provider. Each operation that an
 agent can call is a declared act in Actuation. A tool that the provider runs for a call

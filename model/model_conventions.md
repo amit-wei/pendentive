@@ -98,6 +98,11 @@ It does not hold the content of the contract, which stays in the requirement tex
 A requirement of type `interface` must appear in a row. A side that is not
 decomposed yet is written as `TBD`.
 
+The parties outside the platform are declared in `registers/externals.csv`
+(`MET-032`): the host, the user, an external service. A product interface may name
+one as a side. That side's cell names no requirement, because nothing in the model
+binds a party outside, and the other side is a compartment.
+
 ## Level
 
 Two tests decide the level of a requirement:
@@ -121,6 +126,7 @@ be vague. Their children carry the detail.
 | a `FUN-` identifier | `functional`, `performance` or `interface` |
 | `Constraint: <name>` | `constraint` |
 | an `RSK-` identifier | `safety`, in that risk's compartment |
+| its own `parent_id` | `performance`: the allocation of a budget of the parent (`MET-031`) |
 
 A risk can also be mitigated by a requirement that exists for another reason. That
 link is in the `mitigation` column of the risk, not in `generated_from`.

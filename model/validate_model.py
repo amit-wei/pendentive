@@ -65,10 +65,12 @@ RETIRED = {"superseded", "reversed"}
 #   from a function      -> functional (or a performance/interface facet of one)
 #   from a stakeholder   -> constraint
 #   from a risk          -> safety
+#   from its parent      -> performance, as the allocation of a budget (MET-031)
 TYPE_BY_SOURCE = {
     "function":   {"functional", "performance", "interface"},
     "constraint": {"constraint"},
     "risk":       {"safety"},
+    "allocation": {"performance"},
 }
 
 # Anything shaped like an identifier, wherever it appears in prose.
@@ -114,7 +116,10 @@ def main():
 
     questions = load(os.path.join(REGISTERS, "open_questions.csv"))
     compartments = load(os.path.join(REGISTERS, "compartments.csv"))
+    externals = {row["code"] for row in load(os.path.join(REGISTERS, "externals.csv"))}
     declared = {row["path"]: row["compartment"] for row in compartments}
+    for code in externals & set(declared.values()):
+        errors.append(f"externals.csv: {code} is also a compartment")
     decisions = load(os.path.join(REGISTERS, "design_decisions.csv"))
     decisions += load(os.path.join(REGISTERS, "method_decisions.csv"))
 
@@ -188,11 +193,15 @@ def main():
             kind = "risk"
         elif CONSTRAINT_SOURCE.match(source):
             kind = "constraint"
+        elif source and source == (row.get("parent_id") or "").strip():
+            # An allocation divides the budget of its parent, and no function of
+            # its own compartment is its origin (MET-031).
+            kind = "allocation"
         else:
             kind = None
             errors.append(
                 f"{rid}: generated_from '{source}' is not a function, a risk, "
-                f"or a stakeholder constraint"
+                f"a stakeholder constraint, or its parent (MET-031)"
             )
 
         # Type must be consistent with that origin.
@@ -200,7 +209,7 @@ def main():
         if kind and rtype not in TYPE_BY_SOURCE[kind]:
             errors.append(
                 f"{rid}: type '{rtype}' does not match a requirement generated from "
-                f"a {kind} (expected: {', '.join(sorted(TYPE_BY_SOURCE[kind]))})"
+                f"{'an' if kind[0] in 'aeiou' else 'a'} {kind} (expected: {', '.join(sorted(TYPE_BY_SOURCE[kind]))})"
             )
 
         if row["verification"].strip() not in VERIFICATION:
@@ -218,6 +227,17 @@ def main():
             warnings.append(f"{rid}: text does not read as a 'shall' statement")
 
     requirement_status = {row["id"]: row["status"].strip() for row in requirements}
+
+    # An allocation divides a budget, so its parent must be one. Without this, any
+    # performance row passes by naming its own parent as its origin (MET-031).
+    requirement_type = {row["id"]: row["type"].strip() for row in requirements}
+    for row in requirements:
+        parent = (row.get("parent_id") or "").strip()
+        if parent and row["generated_from"].strip() == parent \
+                and requirement_type.get(parent) != "performance":
+            errors.append(
+                f"{row['id']}: generated from its parent {parent}, which is not a "
+                f"performance requirement, so it allocates no budget (MET-031)")
 
     # -- A function below product level names the function it decomposes ------
     for row in functions:
@@ -414,9 +434,23 @@ def main():
         # An interface is held by the compartment that holds both of its sides.
         # Held anywhere else, one contract has two owners and neither maintains
         # it. TBD is a side that is not decomposed yet (rule 13).
+        # A party outside the platform is a side only at product level, against a
+        # compartment, and its cell names nothing: no requirement of the model
+        # binds the host, the user or a service (MET-032).
+        outside = [c for c in ("from", "to") if row[c].strip() in externals]
+        if outside and owner != "PL":
+            errors.append(f"{iid}: names a party outside the platform below product level")
+        if len(outside) == 2:
+            errors.append(f"{iid}: both sides are outside the platform")
+        for column in outside:
+            cell = row["supplied_by" if column == "from" else "accepted_by"].strip()
+            if cell:
+                errors.append(
+                    f"{iid}: {row[column].strip()} is outside the platform, so its side "
+                    f"names no requirement")
         for column in ("from", "to"):
             side = row[column].strip()
-            if side == "TBD":
+            if side == "TBD" or side in externals:
                 continue
             if side not in path_of:
                 errors.append(
@@ -433,7 +467,10 @@ def main():
         for column, side_column in (("supplied_by", "from"), ("accepted_by", "to")):
             cell = row[column].strip()
             side = row[side_column].strip()
-            if cell == "TBD":
+            if cell == "TBD" or side in externals:
+                continue
+            if not cell:
+                errors.append(f"{iid}: {column} is empty")
                 continue
             # A side can be more than one requirement (MET-021). OPN-057 and
             # OPN-058 each found four requirements consuming one contract while

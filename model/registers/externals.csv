@@ -1,0 +1,4 @@
+code,name,definition
+HOST,The host,"The machine and the operating system on which the platform runs, and what the owner of the host runs on it for the platform (DEC-177). Each part reads the instant from it, so the instant crosses no interface."
+USER,The user,The user and each client with which the user reaches the platform.
+SERVICE,An external service,"A service outside the host that the platform reaches through External Access, a model provider included (DEC-161)."

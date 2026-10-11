@@ -11,10 +11,10 @@ functions, requirements under traceability, and verification by the V-model. The
 method is as important as the system.
 
 **Status:** the product functions and requirements are written. The product is
-divided into ten systems, each written at system level, with functions,
+divided into eleven systems, each written at system level, with functions,
 requirements, risks and safety requirements: Ingestion, State Custody, Work and
 Coordination, Agent Definition, Authorization, Interaction, Actuation, External
-Access, Agent Runtime and Self-Observation.
+Access, Agent Runtime, Self-Observation and Hosting.
 
 No system is finished. Each decomposition has reached back into the levels above it
 and into the systems written before it, and the questions that follow are held as
@@ -45,7 +45,8 @@ model/
     ├── design_decisions.csv     what the system is
     ├── method_decisions.csv     how the model is written
     ├── open_questions.csv       questions held, not guessed at
-    └── compartments.csv         the code and directory of each compartment
+    ├── compartments.csv         the code and directory of each compartment
+    └── externals.csv            the parties outside the platform
 ```
 
 Each directory below `product/` is one compartment. The validator finds the levels.
@@ -68,9 +69,11 @@ Verifies that identifiers are well formed and unique, that every requirement has
 exactly one origin which resolves, that its type matches that origin, that every
 child names a parent that exists, that controlled vocabularies hold, that every risk
 names a mitigation and an RPN equal to the product of its factors, that a safety
-requirement sits at the level of the risk it answers, that each identifier on a
+requirement sits at the level of the risk it answers, that an allocation of a budget
+is generated from its parent, that each identifier on a
 side of an interface is a requirement in the compartment that the row names and that no
-interface requirement is left without a row, that every acceptance criterion names
+interface requirement is left without a row, that a party outside the platform is a
+side only at product level and names no requirement, that every acceptance criterion names
 one requirement that exists in its own compartment and that no criterion is written
 against a product requirement, that every cross-reference in the registers, the
 schema, the README and the documentation points at something real, and that no row

@@ -1,0 +1,4 @@
+id,parent_id,name,definition,rationale,status
+FUN-HO-01,FUN-PL-17,Part Supervision,"Starts each part of the platform when the host starts, and starts each part again when it stops.","A part cannot start itself again, and Self-Observation stops with the parts that it watches (RSK-SO-002). DEC-176.",draft
+FUN-HO-02,FUN-PL-17,Part Isolation,Holds each part to the network and to the storage that it is given.,"A fence that the fenced part holds is a promise: a library inside a part can open a connection that the part does not intend. REQ-PL-033 and REQ-PL-024 hold only where something outside each part refuses (OPN-095, DEC-130). DEC-176.",draft
+FUN-HO-03,FUN-PL-17,Resource Bounds,"Holds each part within its allocation of memory and of storage, and reserves storage for the work of the platform itself.","A part that takes the memory of the host stops the other parts, and a platform whose storage is full cannot start or make its copy. DEC-179.",draft

@@ -32,10 +32,12 @@ found.
     threshold of the design, and an agent changes it.
   - When Work and Coordination does not take the unit, it notifies the user through
     Interaction.
+- **Signal** (`DEC-182`). It gives a signal at an interval, through External Access, to a
+  service away from the host, which tells the user when the signals stop. A stop of this
+  system, of Hosting or of the host stops the signal.
 
 **Waiting on other systems.**
 
-- `OPN-098`: how Interaction shows the state and the notice with no agent between. Until
-  it closes, `RSK-SO-002` (Self-Observation stops and nobody sees it) is open.
+- `OPN-098`: how Interaction shows the state and the notice with no agent between.
 - `OPN-101`: the rating of the user.
 - `OPN-103`: evaluations.

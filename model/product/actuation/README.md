@@ -25,7 +25,7 @@ unit here, so the answer is checked against the act at one point, and an act tha
 another system holds is carried to it from here. `DEC-105` gates only an act whose
 arguments state its effect. A sequence that an agent drives, such as a page in a
 browser, has no means to pay or to send in the name of the user, so it stops and
-the agent reports it. `DEC-123`, which restates `DEC-107`, makes this system the only refuser, and External
+the agent reports it. `DEC-183`, which restates `DEC-123`, makes this system the only refuser, and External
 Access checks no authority over a call that it carries. `DEC-169` (which restates `DEC-106`) holds the record of each act in
 Self-Observation, with the authority by reference.
 

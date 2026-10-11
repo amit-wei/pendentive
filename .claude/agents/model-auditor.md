@@ -43,6 +43,14 @@ the diff did not touch.
   reason from the old premise? Search for the concept, not only the identifier, and
   search READMEs, `docs/` and the test files as well as the rows. After a mechanism is
   removed, search risk prose, function rationales and decision reasons for it too.
+  Where a row lists identifiers as examples of a concept (the rows that use a resource,
+  the rows that report, the callers of a system), search the model for the concept and
+  compare the list with the hits. Report each omission, and each listed row that does
+  not use the concept. A list that only names rows is stale the day a row is added, and
+  the validator cannot see it.
+  After a row or a class of rows is deleted, search the decisions, READMEs and
+  rationales for sentences that describe or count what was deleted. Deleting rows turns
+  the prose about them stale, and the validator checks identifiers, not sentences.
 - **Gaps against other systems.** Does the change assume something no system provides?
 
 ## Beyond the checks

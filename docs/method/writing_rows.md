@@ -28,6 +28,21 @@ valid, and this file does not repeat them. Read it first.
 ## Requirements
 
 - **Don't specify how an agent's message to the user looks.** State what crosses.
+- **Write the test before showing the row.** For each requirement, state the pass and
+  the fail of a test that could run. A row with no such test is rewritten, not shown.
+  Three causes recur:
+  - **A bound with no condition of measurement.** Memory in use depends on the load, and
+    storage depends on the data held. State the condition: "while it runs the most work
+    that it runs at one time", "when it holds no data".
+  - **A word of the model that the mechanism cannot see.** A fence sees a destination,
+    not "an external service". Write the property in what the thing that verifies it
+    can observe.
+  - **A property outside the control of the system.** A system on a host that holds
+    other work cannot keep the storage of the host free. Bound what the system holds.
+- **State the behaviour, not the name of a mechanism, and leave its values to the level
+  below.** "Has a back-off" passes any delay. "Waits longer before each start of a part
+  that stopped soon after its last start, up to a wait of `TBD`" states what a test
+  checks, and the level below sets the values.
 - **A judgement is unverifiable.** "Refuse a request that commits funds" asks the
   system to judge. Refuse by a property that a declaration states, and gate the
   declaration where it weakens a gate.
@@ -97,6 +112,9 @@ valid, and this file does not repeat them. Read it first.
 
 ## Interfaces
 
+- **An interface records something that one side gives the other.** What every part
+  reads from the host as it is, such as the instant, crosses no interface; it is a need
+  of the host and stays in the register of parties outside (`MET-032`).
 - **One row is one thing that crosses** (`MET-021`). A side may name several
   requirements.
 - **An accepting side left `TBD` between two written systems is invisible to the
