@@ -123,10 +123,13 @@ be vague. Their children carry the detail.
 
 | `generated_from` | `type` |
 |---|---|
-| a `FUN-` identifier | `functional`, `performance` or `interface` |
+| a `FUN-` identifier | `functional`, `performance`, `interface` or `quality` |
 | `Constraint: <name>` | `constraint` |
 | an `RSK-` identifier | `safety`, in that risk's compartment |
 | its own `parent_id` | `performance`: the allocation of a budget of the parent (`MET-031`) |
+
+A `quality` requirement states how well its function is done, judged against a
+reference, not whether the function happens or how a mechanism performs (`DEC-187`).
 
 A risk can also be mitigated by a requirement that exists for another reason. That
 link is in the `mitigation` column of the risk, not in `generated_from`.
@@ -147,7 +150,8 @@ link is in the `mitigation` column of the risk, not in `generated_from`.
 
 **Tests:** `id`, `requirement_id`, `criterion`, `status`. One row verifies one
 requirement, and it is held in the compartment of that requirement. A product
-requirement carries no criterion (`MET-004`), so no row names one.
+requirement carries one too (`MET-033`). A `TST-` row records how a requirement is
+verified, by the method that the requirement names, which is not only Test.
 
 **Decisions:** `id`, `date`, `decision`, `reason`, `reverses_if`, `status`,
 `superseded_by`.
@@ -192,8 +196,9 @@ what `agreed` means: in scope and red-lined, not merely written.
 3. A product requirement splits only if each half needs more than one system to
    verify it. A half that one system can verify is a child, not a sibling.
 4. Every requirement names a verification method.
-5. A product requirement carries no acceptance criterion (`MET-004`). Criteria are
-   `TST-` entries at system level and below.
+5. A requirement at every level, the product included, carries an acceptance
+   criterion as a `TST-` entry (`MET-033`). Each level carries the criterion of its
+   own measure.
 6. A requirement is verified only after all of its children are verified.
 7. A safety requirement sits in the compartment of the risk that it answers.
 8. A risk is mitigated by requirements in its compartment or below it, never above.

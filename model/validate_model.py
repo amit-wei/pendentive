@@ -62,12 +62,14 @@ RETIRED = {"superseded", "reversed"}
 
 # A requirement's type must match where it came from. This is what keeps the three
 # kinds of requirement from blurring together:
-#   from a function      -> functional (or a performance/interface facet of one)
+#   from a function      -> functional (or a performance/interface/quality facet of one)
 #   from a stakeholder   -> constraint
 #   from a risk          -> safety
 #   from its parent      -> performance, as the allocation of a budget (MET-031)
+# quality: how well a function is done, judged against a reference, not whether it
+# happens (DEC-187).
 TYPE_BY_SOURCE = {
-    "function":   {"functional", "performance", "interface"},
+    "function":   {"functional", "performance", "interface", "quality"},
     "constraint": {"constraint"},
     "risk":       {"safety"},
     "allocation": {"performance"},
@@ -503,7 +505,7 @@ def main():
                 f"{row['id']}: typed interface, but no interfaces file names it")
 
     # -- Tests: a criterion names the requirement it verifies -----------------
-    # A TST- row is where the acceptance criterion lives (MET-004, rule 5). The
+    # A TST- row is where the acceptance criterion lives (MET-033, rule 5). The
     # file was written and not read, so a row naming a requirement that does not
     # exist passed silently. Whether a requirement with no TST- row is reported
     # is BLD-OPN-008, and is not decided here.
@@ -538,11 +540,6 @@ def main():
                 errors.append(
                     f"{tid}: verifies {verified}, which is dropped, while the test "
                     f"is not")
-            # A product requirement carries no acceptance criterion (MET-004).
-            if compartment_of(verified) == "PL":
-                errors.append(
-                    f"{tid}: verifies {verified}, a product requirement, which "
-                    f"carries no acceptance criterion (MET-004)")
 
     # -- Every cross-reference anywhere must resolve --------------------------
     # Identifiers shift when a set is consolidated or split. A reference left

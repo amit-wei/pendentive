@@ -41,7 +41,15 @@ is specific to it.
 V-model, bottom-up. **A requirement is verified only once all of its children and
 grandchildren are verified.** A component requirement has none, so it is verified
 directly against the component. A system requirement waits for its components. A
-product requirement waits for the whole tree beneath it.
+product requirement waits for the whole tree beneath it, and then for its own
+criterion.
 
-A product requirement carries a verification method and no criterion (`MET-004`).
-Criteria are `TST-` rows at system level and below.
+A requirement at every level, the product included, carries a verification method
+and a criterion (`MET-033`). The criterion is a `TST-` row, whatever the method, and
+each level carries the criterion of its own measure.
+
+A `quality` requirement (`DEC-187`) is verified once for each version, before
+release, on an instance that holds only synthetic data and that no person has used
+(`MET-034`). The method fits what is verified, not its level. A held-out set with reference
+answers, a panel of model judges and a person's review against a rubric each suit a
+different measure.
