@@ -20,16 +20,25 @@ The builder decides. The drafting agent proposes, drafts and asks.
 5. **Requirements**, drafted and then red-lined. Each drafted row is classified:
    functional, safety (it goes to the FMEA), architecture (a decision only) or
    duplicate.
-6. **Close the open questions that the system answers.** Read
+6. **Quality flow-down.** For each `quality` requirement of the parent, ask how the
+   system's own work affects it. Each answer is an enabler: a requirement of the
+   system whose parent is that quality row, with its criterion in its text, `TBD`
+   where the value is not known. A system can have zero, one or several enablers for
+   one quality row; there is no grid. An enabler states a property of the system,
+   never the mechanism and never what an identity says. An existing row that already
+   enables a quality keeps its parent and is named in the rationale of that quality
+   row. An enabler that serves several quality rows takes one parent, chosen with all
+   of them in view (`MET-035`).
+7. **Close the open questions that the system answers.** Read
    `model/registers/open_questions.csv` end to end and close what this system settles.
    The session that decomposes a system is the one with the evidence to close them.
-7. **Interface pass.** Read every interface row whose `from` or `to` names this
+8. **Interface pass.** Read every interface row whose `from` or `to` names this
    system. For each one, name the requirement that accepts it or raise an `OPN-` row.
    The validator cannot see an accepting side left `TBD`, so this pass is manual.
-8. **FMEA.** The risks are proposed in the session and go into the repository only
+9. **FMEA.** The risks are proposed in the session and go into the repository only
    after the builder has red-lined them (`MET-017`: from the failure of the
    compartment as seen from outside, not from the function list).
-9. **Audit** with the `model-auditor` agent (`.claude/agents/`), also after every
+10. **Audit** with the `model-auditor` agent (`.claude/agents/`), also after every
    sweep. Brief it with what changed, the diff, the validator output and the builder's
    recent decisions. Never tell it not to re-litigate. Resume the same agent for each
    later pass. Passes continue until one finds only low, mechanical items, and every
@@ -38,7 +47,7 @@ The builder decides. The drafting agent proposes, drafts and asks.
    builder, and reject a wrong finding with its reason. Bring the speculative items to
    the builder in one short list. The auditor ends each report with a change to its own
    brief; the builder decides, and an accepted change goes into the agent file.
-10. **Close.** The validator is clean. Decisions taken along the way are `DEC-` or
+11. **Close.** The validator is clean. Decisions taken along the way are `DEC-` or
     `MET-` rows; unanswered questions are `OPN-` rows. Commit when the builder says.
 
 ## How rows are drafted and changed

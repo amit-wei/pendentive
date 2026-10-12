@@ -95,6 +95,11 @@ model is wrong against its own rules; a challenge says a rule or decision may be
 1. [HIGH|MEDIUM|LOW] [MECHANICAL|DECISION] ROW-ID(s): what is wrong, with the quoted
    text. Fix: the change (for MECHANICAL) or the choice to make (for DECISION).
 
+## Pass and fail
+| Row | Pass / fail as written |
+One line for each requirement that the change adds or rewrites. Where no test could
+decide it, say so; that row is also a finding.
+
 ## Overbuilding and overspecifying
 (same format)
 

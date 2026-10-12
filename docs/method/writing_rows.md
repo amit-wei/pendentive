@@ -54,6 +54,10 @@ valid, and this file does not repeat them. Read it first.
   Custody.
 - **A property that doing nothing satisfies is empty.** "The system lets the agent write
   a note" is met by a system that does nothing.
+- **Check what a signal actually covers.** A rule that reads one outcome as covering
+  more than it shows removes a judgement the agent needs. "Don't repeat a rejected
+  contact" reads a rejection of the content or the timing as a rejection of the
+  contact. Hold what happened, with enough of its context to tell what it covers.
 - **A requirement with one `TBD` can still fix a policy.** "End the run at cost `TBD`"
   decides that the run ends. State where the value is held, not what is done with it.
 - **Don't state the content of a payload.** State what each row gives.

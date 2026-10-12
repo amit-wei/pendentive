@@ -27,8 +27,8 @@ INT-PL-25,ST,AC,the times of a value that is served,REQ-ST-014,REQ-AC-011,draft
 INT-PL-26,AD,ST,whether any declared position names a given declaration,REQ-AD-053,REQ-ST-050,draft
 INT-PL-27,AD,IN,whether any declared position names a given declaration,REQ-AD-053,REQ-IN-027,draft
 INT-PL-28,IA,ST,the source of an exchange,REQ-IA-026,REQ-ST-002,draft
-INT-PL-29,IA,WC,the answer of the user to a unit of work that asks the user,REQ-IA-013,REQ-WC-049,draft
-INT-PL-30,IA,WC,that the user received a message,REQ-IA-016,REQ-WC-053,draft
+INT-PL-29,IA,WC,"the answer of the user, with its reason, to a unit of work that asks the user",REQ-IA-013,REQ-WC-049,draft
+INT-PL-30,IA,WC,"that the user received a message, how the user received it, with its reason",REQ-IA-016,REQ-WC-053,draft
 INT-PL-31,IA,ST,the kind of an exchange,REQ-IA-032,REQ-ST-058,draft
 INT-PL-32,IA,ST,the agent of an exchange,REQ-IA-028,REQ-ST-060,draft
 INT-PL-33,IA,WC,whether the user opened a unit of work that asks the user,REQ-IA-024,REQ-WC-062,draft
@@ -133,3 +133,4 @@ INT-PL-149,HOST,HO,storage for the platform that is kept when the host starts ag
 INT-PL-150,HOST,HO,a start of the runtime when the host starts,,REQ-HO-001,draft
 INT-PL-151,HOST,EX,a route from the host to a destination outside it,,REQ-EX-020 REQ-EX-021 REQ-EX-038,draft
 INT-PL-152,HOST,HO,"storage for the platform of at least the budget of REQ-PL-040, with the reserve of REQ-HO-008 and the data",,REQ-HO-008 REQ-HO-010,draft
+INT-PL-153,IA,WC,"each notice of a message when it is delivered, with its means and its time",REQ-IA-051,REQ-WC-121,draft
