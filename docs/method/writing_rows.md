@@ -71,6 +71,12 @@ valid, and this file does not repeat them. Read it first.
   bulk deletion would have loosened `DEC-021`, under which nothing is removed
   unless the user asks.
 - **Check what a mechanism is for before generalising it.**
+- **Size each row to its level and its job, in both directions.** Before showing a row,
+  ask whether it is narrower than the job, and whether a test can still pass or fail it.
+  A supply is general where the supplier does not care which instance crosses: State
+  Custody gives a system a fact about the user, not the time zone alone. An acceptance
+  is specific where a test must name what passes: Work and Coordination accepts the time
+  zone. Each later reader adds its own acceptance to the same row.
 
 ## Risks
 
