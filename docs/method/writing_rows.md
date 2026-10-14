@@ -28,6 +28,12 @@ valid, and this file does not repeat them. Read it first.
 ## Requirements
 
 - **Don't specify how an agent's message to the user looks.** State what crosses.
+- **Don't watch for a fault that already fails visibly.** A fault that ends in a failure
+  the platform already handles needs no detector of its own. A model that its provider
+  retires fails each call, the run fails, and the stop of the work reaches an agent or
+  the user (`DEC-191`). A row that watches for the notice of retirement is overbuilding.
+  Detect early only what would otherwise pass unseen, such as a provider that runs
+  another version than the call names.
 - **Write the test before showing the row.** For each requirement, state the pass and
   the fail of a test that could run. A row with no such test is rewritten, not shown.
   Three causes recur:

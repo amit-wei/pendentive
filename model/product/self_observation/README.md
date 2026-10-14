@@ -25,19 +25,21 @@ found.
   each agent when asked.
 - **Outcomes.** For each agent, it gives the share of its units that closed with no result,
   and the share of its requests that the user did not affirm. It measures and does not
-  judge. Evaluations are the work of an agent (`OPN-103`).
+  judge. Evaluations are the work of an agent (`DEC-193`), raised when a model changes (`REQ-EX-053`,
+  `REQ-AD-083`). A rating of the user is a correction in an exchange (`DEC-192`).
 - **Escalation** (`DEC-163`).
   - It raises a unit for each condition that a system reports (`DEC-162`, `MET-027`), and
     when a measure passes its threshold (`DEC-166`). Each measure starts with a
     threshold of the design, and an agent changes it.
   - When Work and Coordination does not take the unit, it notifies the user through
-    Interaction.
+    Interaction, in the view of the platform that no agent stands between (`DEC-190`).
+  - Work and Coordination gives it each unit that stops, with its context. A stop of a
+    unit that a system raised becomes a notice to the user, and no work (`DEC-191`).
 - **Signal** (`DEC-182`). It gives a signal at an interval, through External Access, to a
   service away from the host, which tells the user when the signals stop. A stop of this
   system, of Hosting or of the host stops the signal.
 
 **Waiting on other systems.**
 
-- `OPN-098`: how Interaction shows the state and the notice with no agent between.
-- `OPN-101`: the rating of the user.
-- `OPN-103`: evaluations.
+- `OPN-104`: the measures that each system gives.
+- `OPN-113`: what a system answers to the check of `REQ-SO-001`.

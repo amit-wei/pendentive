@@ -2,7 +2,7 @@
 
 Provides the surfaces between the user and the platform, by speech and by text.
 
-From `FUN-PL-06`, `FUN-PL-05` and `FUN-PL-07`.
+From `FUN-PL-06`, `FUN-PL-05`, `FUN-PL-07` and `FUN-PL-11`.
 
 A client of the platform reaches the platform through this system, and no client that
 another person wrote reaches it (`DEC-143`). Agent Runtime runs the agent of each
@@ -24,6 +24,11 @@ The surface, the client and the architecture of speech are below this level.
 approval counts when the user confirms it in a separate step. `OPN-003` asks for the latency
 budget of a spoken turn and waits for subsystem prototypes, and `REQ-IA-009` carries
 it as `TBD`.
+
+The view of the platform shows the user the state of the platform that Self-Observation
+gives, and delivers each notice of a fault in which no agent can answer, with no run of an
+agent between (`DEC-190`). A turn of the user that got no reply is told there too
+(`REQ-IA-052`). The view of the work is apart from it.
 
 This system holds the state that it needs for its own work and gives none of it to an
 agent (`DEC-120`, `REQ-IA-031`). `OPN-068` asks who raises the work that draws from

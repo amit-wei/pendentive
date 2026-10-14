@@ -54,7 +54,7 @@ INT-PL-52,WC,AC,the result of a call that Actuation carried,REQ-WC-088,REQ-AC-03
 INT-PL-53,AD,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AD-058,REQ-AC-033,draft
 INT-PL-54,IN,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-IN-032,REQ-AC-033,draft
 INT-PL-55,AU,AC,"the result of a call, or of a released gated unit, that Actuation carried",REQ-AU-025 REQ-AU-006,REQ-AC-033,draft
-INT-PL-56,AD,IA,the position that speaks to the user,REQ-AD-064,REQ-IA-004,draft
+INT-PL-56,AD,IA,the position that speaks to the user,REQ-AD-064,REQ-IA-004 REQ-IA-057,draft
 INT-PL-57,IA,ST,the kind of each exchange that is written,REQ-IA-027,REQ-ST-060 REQ-ST-061,draft
 INT-PL-58,AU,EX,the copy of the declared classes away from the host,REQ-AU-015,REQ-EX-031,draft
 INT-PL-59,EX,ST,a copy of life state for a restoration,REQ-EX-032,REQ-ST-020 REQ-ST-071,draft
@@ -103,8 +103,8 @@ INT-PL-107,EX,IN,a copy of the definitions of the sources for a restoration,REQ-
 INT-PL-108,WC,SO,"how each unit of work closed, with its agent",REQ-WC-096,REQ-SO-028,draft
 INT-PL-109,WC,SO,"the answer of the user to each request for an affirmative answer, with the agent that raised it",REQ-WC-097,REQ-SO-029,draft
 INT-PL-110,SO,WC,a unit of work that Self-Observation raises,REQ-SO-020 REQ-SO-021,REQ-WC-001,draft
-INT-PL-111,SO,IA,a notice of a unit of work that Self-Observation raised and that no agent took,REQ-SO-022,TBD,draft
-INT-PL-112,SO,IA,the state of the platform,REQ-SO-023,TBD,draft
+INT-PL-111,SO,IA,a notice of a fault in which no agent can answer,REQ-SO-022 REQ-SO-044 REQ-SO-045,REQ-IA-054,draft
+INT-PL-112,SO,IA,the state of the platform,REQ-SO-023,REQ-IA-055,draft
 INT-PL-113,WC,SO,"the state of each unit of work that Self-Observation raised, and each refusal of it",REQ-WC-009 REQ-WC-031,REQ-SO-033,draft
 INT-PL-114,AD,SO,a fact about the platform that the system reports,REQ-AD-072,REQ-SO-030,draft
 INT-PL-115,EX,SO,a fact about the platform that the system reports,REQ-EX-046,REQ-SO-030,draft
@@ -170,3 +170,9 @@ INT-PL-186,SERVICE,EX,a renewed credential,,REQ-EX-014,draft
 INT-PL-187,SERVICE,EX,"the credential of a connection, in answer to a consent that the system started",,REQ-EX-012,draft
 INT-PL-188,SERVICE,EX,the description of the operation that a call names,,REQ-EX-027,draft
 INT-PL-189,SERVICE,EX,"a copy, for a restoration",,REQ-EX-032,draft
+INT-PL-190,WC,SO,"each unit of work that stops, with its raiser, whether a declared condition raised it, its responsible agent and how its run ended",REQ-WC-123,REQ-SO-043,draft
+INT-PL-191,IA,USER,each notice of a fault in which no agent can answer,REQ-IA-054 REQ-IA-058,,draft
+INT-PL-192,IA,USER,the state of the platform,REQ-IA-055,,draft
+INT-PL-193,IA,USER,that no agent holds the position that speaks to the user,REQ-IA-057,,draft
+INT-PL-194,ST,WC,a fact about the user that life state holds,REQ-ST-098,REQ-WC-124,draft
+INT-PL-195,IN,ST,which text of an item a model read from a document or an image,REQ-IN-049,REQ-ST-100,draft

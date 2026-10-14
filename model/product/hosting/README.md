@@ -37,5 +37,5 @@ instant from the host. A person who administers the host is outside the model
 (`DEC-178`).
 
 **Not here.** Installation, which does not run while the platform serves the user. The
-time of the user, which Work and Coordination reads from life state (`DEC-181`). The
+time of the user, which Work and Coordination reads from life state (`DEC-194`). The
 signal to a service away from the host, which Self-Observation gives (`DEC-182`).
