@@ -48,6 +48,11 @@ the diff did not touch.
   compare the list with the hits. Report each omission, and each listed row that does
   not use the concept. A list that only names rows is stale the day a row is added, and
   the validator cannot see it.
+  When a decision claims that every path to a thing is behind a stated set of gates,
+  enumerate the paths from the rows, not from the decision: each system that can reach
+  the thing (calls, sessions, rendering by a client, deliveries), and the gate in front
+  of each one. Then check that the user's answer at each gate is informed by a row that
+  states what it grants.
   After a row or a class of rows is deleted, search the decisions, READMEs and
   rationales for sentences that describe or count what was deleted. Deleting rows turns
   the prose about them stale, and the validator checks identifiers, not sentences.

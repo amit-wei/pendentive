@@ -176,3 +176,7 @@ INT-PL-192,IA,USER,the state of the platform,REQ-IA-055,,draft
 INT-PL-193,IA,USER,that no agent holds the position that speaks to the user,REQ-IA-057,,draft
 INT-PL-194,ST,WC,a fact about the user that life state holds,REQ-ST-098,REQ-WC-124,draft
 INT-PL-195,IN,ST,which text of an item a model read from a document or an image,REQ-IN-049,REQ-ST-100,draft
+INT-PL-196,WC,IA,"each unit of work, the agent responsible for it, its current state, the time at which it entered that state and the units raised under it",REQ-WC-128,REQ-IA-059,draft
+INT-PL-197,WC,IA,"each unit of work that the user answered, with its request, the answer of the user and the time of the answer",REQ-WC-129,REQ-IA-060,draft
+INT-PL-198,IA,USER,the work that the platform holds,REQ-IA-059,,draft
+INT-PL-199,IA,USER,"each answer that the user gave, with its request and the time of the answer",REQ-IA-060,,draft

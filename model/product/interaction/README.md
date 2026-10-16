@@ -2,7 +2,7 @@
 
 Provides the surfaces between the user and the platform, by speech and by text.
 
-From `FUN-PL-06`, `FUN-PL-05`, `FUN-PL-07` and `FUN-PL-11`.
+From `FUN-PL-06`, `FUN-PL-05`, `FUN-PL-07`, `FUN-PL-11` and `FUN-PL-04`.
 
 A client of the platform reaches the platform through this system, and no client that
 another person wrote reaches it (`DEC-143`). Agent Runtime runs the agent of each
@@ -28,14 +28,16 @@ it as `TBD`.
 The view of the platform shows the user the state of the platform that Self-Observation
 gives, and delivers each notice of a fault in which no agent can answer, with no run of an
 agent between (`DEC-190`). A turn of the user that got no reply is told there too
-(`REQ-IA-052`). The view of the work is apart from it.
+(`REQ-IA-052`). The view of the work is apart from it: it keeps each unit of work available
+to the user, with its state and the units raised under it, and each answer that the user
+gave, with no run of an agent between (`DEC-200`, `FUN-IA-10`).
 
 This system holds the state that it needs for its own work and gives none of it to an
 agent (`DEC-120`, `REQ-IA-031`). `OPN-068` asks who raises the work that draws from
 an exchange.
 
 Work and Coordination accepts `INT-PL-29`, `INT-PL-30` and `INT-PL-33` and supplies
-`INT-PL-10`. It gives this system the refusal of an answer to a unit that closed
+`INT-PL-10`, `INT-PL-196` and `INT-PL-197`. It gives this system the refusal of an answer to a unit that closed
 (`INT-PL-35`), which it shows in the exchange in which the user answered
 (`REQ-IA-030`). A question for the user is put by the agent for speech (`DEC-119`). What a confirmation shows for a step that an
 agent drives is `OPN-078`.

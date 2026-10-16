@@ -20,7 +20,7 @@ not, which is not reversible. `DEC-103`, restated by `DEC-138`, accepts it at 30
 it, and an act that needs the authorization of the user reaches the user twice first. `RSK-WC-010` inverts: a class-level declaration now gives one position
 every instance instead of matching units that do not collide.
 
-`REQ-WC-036` refuses to give a unit of work by position, and `REQ-WC-040` refuses
+`REQ-WC-036` refuses to give a unit of work to an agent by position, and `REQ-WC-040` refuses
 the raise of one, which `DEC-042` makes a write to the same body (`OPN-036`).
 
 Session 10 wrote the path of the answer of the user through this system.

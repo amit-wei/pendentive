@@ -34,6 +34,13 @@ valid, and this file does not repeat them. Read it first.
   the user (`DEC-191`). A row that watches for the notice of retirement is overbuilding.
   Detect early only what would otherwise pass unseen, such as a provider that runs
   another version than the call names.
+- **Don't add a refusal that another bound already makes.** Ask which boundary already
+  stops the threat, and whether the new refusal stops it at all. A refusal of each
+  address that a connection does not state was cut (`DEC-199`): an agent that reaches the
+  open web carries life state out there whatever another connection states, so the
+  position of the agent is the bound.
+- **A refusal holds only on what the boundary can see.** An HTTP method states only by
+  convention whether a request changes state, and a service can break the convention.
 - **Write the test before showing the row.** For each requirement, state the pass and
   the fail of a test that could run. A row with no such test is rewritten, not shown.
   Three causes recur:
